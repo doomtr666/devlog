@@ -1,0 +1,11 @@
+# Hugo generated files
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Hugo temporary files
+/data/
+
+# Editor specific files
+.vscode/
+

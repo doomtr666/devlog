@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+BLURP
+BLURP
+BLURP
+BLURP
+BLURP
+<ul>
+    {{ range (where .Site.Pages "Section" "posts") }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+    </li>
+    {{ end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
+{{ end }}
