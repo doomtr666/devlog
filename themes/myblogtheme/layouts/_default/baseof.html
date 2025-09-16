@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ .Lang }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,14 +13,10 @@
     {{ block "head" . }}
     {{ end }}
 </head>
+
 <body>
     <header>
-        <nav>
-            <a href="{{ .Site.BaseURL }}">Accueil</a>
-            <a href="{{ "posts/" | absURL }}">Blog</a>
-            <a href="{{ "a-propos/" | absURL }}">À propos</a>
-            <a href="{{ "mon-cv/" | absURL }}">Mon CV</a>
-        </nav>
+        {{ partial "header.html" . }}
     </header>
     <main>
         <div class="container">
@@ -31,4 +28,5 @@
         <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
     </footer>
 </body>
+
 </html>

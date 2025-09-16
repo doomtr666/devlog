@@ -32,7 +32,7 @@ p {
 
 /* Links */
 a {
-    color: #4a90e2; /* Desaturated blue */
+    color: #4a90e2; /* Desaturated blue - now consistent for all links */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -52,17 +52,29 @@ header {
 
 /* Navigation */
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 nav a {
     font-weight: 400; /* Lighter font weight for discretion */
     font-size: 1.05em;
-    color: #777; /* Softer color for nav links */
+    /* color: #777; -- REMOVED to inherit general 'a' color */
     padding: 5px 10px;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -129,7 +141,7 @@ ul li:last-child {
 ul li a {
     font-size: 1.3em;
     font-weight: 700;
-    color: #333;
+    /* color: #333; -- REMOVED to inherit general 'a' color */
 }
 
 ul li a:hover {
