@@ -1,6 +1,5 @@
 ---
 title: "À propos de moi"
-date: 2025-09-15T10:00:00+02:00
 draft: false
 ---
 

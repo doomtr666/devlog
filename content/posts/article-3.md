@@ -1,6 +1,5 @@
 ---
 title: "Maîtriser Hugo : Un Guide Complet"
-date: 2025-09-17T10:00:00+02:00
 draft: false
 tags: ["hugo", "guide", "static-site"]
 ---

@@ -1,6 +1,5 @@
 ---
 title: "Construire un Portfolio de Développeur Efficace"
-date: 2025-09-24T10:00:00+02:00
 draft: false
 tags: ["carrière", "portfolio", "développement"]
 ---

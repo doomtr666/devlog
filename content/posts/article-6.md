@@ -1,6 +1,5 @@
 ---
 title: "Optimisation des Images pour le Web"
-date: 2025-09-20T10:00:00+02:00
 draft: false
 tags: ["performance", "images", "web"]
 ---

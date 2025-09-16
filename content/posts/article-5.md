@@ -1,6 +1,5 @@
 ---
 title: "Introduction à Go pour les Développeurs Web"
-date: 2025-09-19T10:00:00+02:00
 draft: false
 tags: ["go", "backend", "programmation"]
 ---

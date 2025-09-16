@@ -1,6 +1,5 @@
 ---
 title: "Accueil"
-date: 2025-09-15T11:00:00+02:00
 draft: false
 ---
 

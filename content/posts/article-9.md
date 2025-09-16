@@ -1,6 +1,5 @@
 ---
 title: "La Sécurité Web pour les Développeurs"
-date: 2025-09-23T10:00:00+02:00
 draft: false
 tags: ["sécurité", "web", "bonnes-pratiques"]
 ---

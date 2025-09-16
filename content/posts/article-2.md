@@ -1,6 +1,5 @@
 ---
 title: "Le Futur du Développement Web"
-date: 2025-09-16T10:00:00+02:00
 draft: false
 tags: ["web", "futur", "technologie"]
 ---

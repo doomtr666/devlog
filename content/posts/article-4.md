@@ -1,6 +1,5 @@
 ---
 title: "Les Bonnes Pratiques en CSS Moderne"
-date: 2025-09-18T10:00:00+02:00
 draft: false
 tags: ["css", "design", "frontend"]
 ---

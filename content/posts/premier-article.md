@@ -1,6 +1,5 @@
 ---
 title: "Mon Premier Article de Blog"
-date: 2025-09-15T10:30:00+02:00
 draft: false
 tags: ["hugo", "blog", "bienvenue"]
 ---

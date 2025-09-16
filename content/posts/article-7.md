@@ -1,6 +1,5 @@
 ---
 title: "Créer une Expérience Utilisateur Inoubliable"
-date: 2025-09-21T10:00:00+02:00
 draft: false
 tags: ["ux", "design", "produit"]
 ---
