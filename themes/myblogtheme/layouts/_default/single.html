@@ -1,8 +1,8 @@
 {{ define "main" }}
     <article>
         <h1>{{ .Title }}</h1>
-        {{ if .Params.date }}
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        {{ with .GitInfo }}
+            <time datetime="{{ .AuthorDate.Format "2006-01-02" }}">{{ .AuthorDate.Format "02 Jan 2006" }}</time>
         {{ end }}
         {{ .Content }}
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}

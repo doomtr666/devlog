@@ -4,7 +4,8 @@ body {
     margin: 0;
     background-color: #f5f5f5; /* Consistent off-white background */
     color: #333;
-    line-height: 1.7;
+    line-height: 1.5;
+    font-size: 0.85em; /* Reduced base font size */
 }
 
 .container {
@@ -17,17 +18,17 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #222;
-    margin-top: 2.5em;
-    margin-bottom: 0.8em;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
     line-height: 1.2;
 }
 
-h1 { font-size: 2.8em; }
-h2 { font-size: 2.2em; }
-h3 { font-size: 1.7em; }
+h1 { font-size: 2.4em; }
+h2 { font-size: 1.9em; }
+h3 { font-size: 1.45em; }
 
 p {
-    margin-bottom: 1em;
+    margin-bottom: 0.7em;
 }
 
 /* Links */
@@ -73,7 +74,7 @@ nav ul li {
 
 nav a {
     font-weight: 400; /* Lighter font weight for discretion */
-    font-size: 1.05em;
+    font-size: 0.9em;
     /* color: #777; -- REMOVED to inherit general 'a' color */
     padding: 5px 10px;
     border-radius: 4px;
@@ -93,11 +94,11 @@ main {
 
 /* Footer */
 footer {
-    margin-top: 60px;
-    padding: 30px 20px;
+    margin-top: 40px;
+    padding: 20px 20px;
     border-top: 1px solid #e0e0e0;
     text-align: center;
-    font-size: 0.85em;
+    font-size: 0.75em;
     color: #999; /* Softer color for footer text */
     /* background-color: #ffffff; Removed for consistent background */
 }
@@ -107,10 +108,10 @@ pre {
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 15px;
+    padding: 10px;
     overflow-x: auto;
     font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1.4;
 }
 
@@ -123,47 +124,45 @@ code {
 
 /* Article List (for homepage) */
 ul {
-    list-style: none;
-    padding: 0;
+    list-style: disc;
+    padding-left: 20px; /* Align with container padding */
 }
 
-ul li {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
+.post-list li {
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px; /* Indent text for readability */
+    line-height: 1.2; /* Reduced line height for bullet points */
     border-bottom: 1px dashed #eee;
 }
 
-ul li:last-child {
+.post-list li:last-child {
     border-bottom: none;
     margin-bottom: 0;
 }
 
-ul li a {
-    font-size: 1.3em;
+.post-list li a {
+    font-size: 1.1em;
     font-weight: 700;
     /* color: #333; -- REMOVED to inherit general 'a' color */
 }
 
-ul li a:hover {
+.post-list li a:hover {
     color: #4a90e2; /* Use new desaturated blue for article link hover */
 }
 
-ul li time {
+.post-list li time {
     display: block;
-    font-size: 0.85em;
+    font-size: 0.75em;
     color: #888;
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 /* Print styles - Enhanced for better print output */
 @media print {
     body {
-        font-size: 12pt;
-        max-width: none;
-        margin: 0;
-        padding: 20mm; /* Use physical units for print padding */
-        color: #000;
-        background-color: #fff; /* White background for print */
+        background-color: #fff; /* White background for print to save ink */
+        font-size: 10pt; /* Smaller base font size for print */
     }
     header, header nav, footer {
         display: none !important;
@@ -173,30 +172,103 @@ ul li time {
         padding: 0 !important; /* Remove padding */
         line-height: 0 !important; /* Collapse line height */
     }
-    a {
-        text-decoration: underline;
-        color: #000; /* Ensure links are black in print */
-    }
-    a[href]:after {
-        content: " (" attr(href) ")"; /* Show link URLs in print */
-        font-size: 9pt;
-        word-break: break-all; /* Prevent long URLs from overflowing */
-    }
+    /* Rules for page breaks */
     h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
-        color: #000;
+        margin-top: 0.5em; /* Reduce top margin */
+        margin-bottom: 0.3em; /* Reduce bottom margin */
+        line-height: 1.2; /* Adjust line height */
+    }
+    h1 {
+        page-break-before: avoid;
+        font-size: 1.8em; /* Smaller font size for h1 */
+    }
+    h2 {
+        font-size: 1.5em; /* Smaller font size for h2 */
+        border-bottom: 1px solid #eee; /* Subtle bottom border */
+        padding-bottom: 0.2em; /* Add some padding below the border */
+        margin-bottom: 0.5em; /* Adjust margin */
+    }
+    h3 {
+        font-size: 1.2em; /* Smaller font size for h3 */
+        color: #555; /* Slightly darker color for subheadings */
+        margin-top: 0.8em; /* Adjust margin */
+    }
+    h1, h2, h3, h4, h5, h6, p, ul, ol, .print-only-contact {
+        page-break-inside: avoid;
     }
     pre, blockquote {
         page-break-inside: avoid;
-        border: 1px solid #ccc;
-        background-color: #f0f0f0;
-    }
-    article {
-        page-break-after: always;
     }
     /* Ensure images are scaled down for print if any were added */
     img {
         max-width: 100%;
         height: auto;
     }
+
+    /* Specific styles for contact information in print */
+    .print-only-contact {
+        font-size: 0.8em; /* Even smaller font size for contact info */
+        margin-bottom: 0.5em; /* Further reduce bottom margin */
+        text-align: left; /* Align content to the left */
+    }
+    .print-only-contact ul {
+        padding-left: 0; /* Remove default ul padding */
+        list-style: none; /* Remove bullet points */
+        margin: 0; /* Remove default ul margin */
+        display: inline; /* Make the ul behave like an inline element */
+    }
+    .print-only-contact ul li {
+        display: inline; /* Display list items inline */
+        margin-right: 0.8em; /* Add some space between items */
+    }
+    .print-only-contact ul li:not(:last-child)::after {
+        content: " | "; /* Add a separator between items */
+    }
+    .print-only-contact ul li img {
+        width: 16px; /* Smaller icons */
+        height: 16px;
+        vertical-align: middle;
+    }
+}
+
+/* Hide print-only content by default */
+.print-only-contact {
+    display: none;
+}
+
+/* Show print-only content in print media */
+@media print {
+    .print-only-contact {
+        display: block;
+    }
+}
+
+/* Footer Credits */
+.footer-credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.credit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8em;
+    color: #666;
+}
+
+.credit-item img {
+    height: 24px; /* Hauteur uniforme pour les logos */
+}
+
+/* Styling for social icons in content */
+.container a img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px; /* Add some space between icon and text if any */
 }

@@ -3,6 +3,9 @@
   {{ .Content }}
   {{ range .Pages }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ with .GitInfo }}
+        <time datetime="{{ .AuthorDate.Format "2006-01-02" }}">{{ .AuthorDate.Format "02 Jan 2006" }}</time>
+    {{ end }}
     {{ .Summary }}
   {{ end }}
 {{ end }}

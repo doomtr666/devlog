@@ -1,0 +1,21 @@
+.goat {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.goat-scale {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.goat>svg {
+  font-family: monospace;
+  font-size: medium;
+}
+
+@media only screen and (max-width: 650px) {
+  .goat-scale {
+    width: 90% !important;
+  }
+}

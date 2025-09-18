@@ -1,50 +1,60 @@
 ---
-title: "Vibe Coding avec Gemini : Une Expérience de Création de Site Web"
+title: "Vibe Coding avec Gemini : Évaluation d'un Agent IA pour la Création d'un Site"
 draft: false
-tags: ["gemini", "ai", "développement", "vibe-coding"]
+tags: ["gemini", "ai", "développement", "vibe-coding", "hugo"]
 ---
 
-Ce site et son premier article sont le fruit d'une collaboration en 'vibe coding' avec Gemini, constituant mon premier sujet et projet.
+Cet article relate une expérience de "vibe coding" menée avec Gemini, un agent de développement IA. Fait notable, l'agent a non seulement créé l'intégralité de ce blog, mais a également rédigé et corrigé cet article même, au fil de nos nombreuses itérations.
 
 <!--more-->
 
-## Introduction : L'Expérience du Vibe Coding
+## Introduction : L'Idée de Départ
 
-**[Christophe]** En tant qu'utilisateur, mon objectif initial était d'explorer les capacités de Gemini Code Assist pour VSCode en version 2.5 pro, avec le mode Agent activé (actuellement en "preview"), pour la création de ce site web Hugo, dont l'article que tu lis est le fruit de notre collaboration. N'étant pas particulièrement à l'aise avec le développement front-end, j'ai opté pour une approche "vibe coding", c'est-à-dire me laisser guider par l'agent et voir où le processus nous mènerait, sans plan détaillé préétabli.
+Mon but initial était d'explorer les capacités de l'extension VSCode "Gemini Code Assist" en utilisant son mode "Agent", une fonctionnalité alors en version "preview". Le développement front-end n'étant pas mon cœur de métier, la réalisation de ce projet m'aurait demandé du temps. Déléguer cette tâche à une IA représentait donc une expérience intéressante pour évaluer la maturité de ce type d'outil.
 
-## L'Agent au Travail : Gemini et son Moteur
+J'ai donc adopté une approche de "vibe coding" : une approche exploratoire où l'on se laisse guider par l'outil, sans cahier des charges strict, pour découvrir les possibilités. Plutôt que de fournir un cahier des charges détaillé, j'ai donné des directives générales à l'agent. Partant d'une page blanche et n'ayant pas moi-même une connaissance approfondie de Hugo, c'était aussi pour moi l'occasion d'apprendre en observant l'agent travailler.
 
-**[Gemini]** Pour ce projet, j'ai interagi avec toi, Christophe, en tant que grand modèle linguistique développé par Google. Mon rôle en tant qu'agent était de comprendre tes requêtes textuelles et de les traduire en actions concrètes sur ton environnement de développement, en utilisant les outils mis à ma disposition (lecture/écriture de fichiers, exécution de commandes shell, etc.). Mon "moteur" est l'architecture d'intelligence artificielle sous-jacente qui me permet de traiter le langage naturel, de raisonner sur le contexte du projet et de générer des plans d'action. Je fonctionne comme un agent CLI interactif, exécutant des commandes et manipulant des fichiers directement dans ton répertoire de travail.
+## L'Agent IA au Travail
 
-## Le Processus de Création : Un Résumé de Nos Échanges
+L'agent Gemini est un grand modèle linguistique fonctionnant en ligne de commande. Son rôle est d'interpréter des requêtes en langage naturel et de les traduire en actions concrètes sur l'environnement de développement : lecture et écriture de fichiers, analyse de l'arborescence, ou exécution de commandes shell. Pour ce projet, je l'ai donc utilisé comme un outil de développement avancé, lui déléguant la réalisation technique des objectifs que je fixais. Cette interaction en ligne de commande est une caractéristique clé de l'agent, lui permettant d'agir directement sur l'environnement de développement.
 
-Voici un aperçu chronologique des étapes clés de notre collaboration pour construire ce blog Hugo, en distinguant nos interventions et en soulignant les défis rencontrés :
+## Pérégrinations
 
-1.  **Initialisation et Contexte :**
-    *   **[Christophe]** J'ai formulé ma requête à un niveau élevé pour la création d'un site web Hugo.
-    *   **[Gemini]** J'ai généré le code Hugo initial en utilisant la commande `hugo new`, puis j'ai pris connaissance de l'environnement de travail et des fichiers du projet existant.
+Voici la liste des principales demandes formulées à l'agent, avec un compte-rendu des succès et des difficultés rencontrées pour chacune.
 
-2.  **Gestion des Dates Git :**
-    *   **[Christophe]** J'ai souhaité que les articles utilisent les dates de commit Git plutôt que des dates statiques dans le front matter. Face à des difficultés initiales pour obtenir le résultat escompté, j'ai dû te guider en fournissant la syntaxe exacte à utiliser (`{{ with .GitInfo }} {{ .AuthorDate.Format "2006-01-02" }} {{ end }}`).
-    *   **[Gemini]** J'ai modifié le template `home.html` pour afficher les dates Git comme spécifié, après avoir reçu des instructions plus précises.
+1.  **Initialisation et personnalisation de base**
+    *   **Demandes :** Créer un site Hugo, changer le titre.
+    *   **Résultat :** Succès. Tâches simples et bien exécutées.
 
-3.  **Changement de Nom du Site :**
-    *   **[Christophe]** J'ai trouvé le nom "Mon Blog" trop générique et j'ai demandé des suggestions, choisissant finalement "DevLog".
-    *   **[Gemini]** J'ai mis à jour le fichier `hugo.toml` pour refléter le nouveau titre du site.
+2.  **Création et réparation du menu de navigation**
+    *   **Demande :** Mettre en place un menu principal avec les liens "Accueil", "DevBlog", "À propos" et "Mon CV".
+    *   **Résultat :** Très laborieux. Ce fut l'un des premiers points de friction. L'agent a d'abord généré un menu avec des liens codés en dur, ce qui le rendait non fonctionnel et non maintenable. Il a fallu de nombreuses tentatives pour le forcer à analyser l'intégralité du site et à adopter les bonnes pratiques de Hugo. Le menu s'est retrouvé "complètement cassé" à plusieurs reprises avant d'arriver au résultat attendu.
 
-4.  **Affichage des Résumés d'Articles :**
-    *   **[Christophe]** J'ai exprimé mon insatisfaction quant à l'affichage du contenu complet des articles sur les pages de liste et j'ai demandé à n'afficher que le titre, la date et un résumé.
-    *   **[Gemini]** J'ai modifié `home.html` et `list.html` pour inclure `{{ .Summary }}`. Cependant, après ton retour indiquant que cela ne fonctionnait pas, j'ai dû investiguer plus en profondeur. J'ai identifié que l'absence de balises `<!--more-->` dans tes articles de test était la cause. J'ai ensuite ajouté cette balise et un résumé générique à tous tes articles existants, nécessitant une itération supplémentaire.
+3.  **Affichage des résumés d'articles**
+    *   **Demande :** Sur la page d'accueil, afficher un résumé de chaque article plutôt que son contenu complet.
+    *   **Résultat :** Succès après une itération. La première tentative de l'agent a échoué. Il a cependant correctement identifié la cause du problème : l'absence de la balise `<!--more-->` dans les articles, une fonctionnalité de Hugo que j'ignorais. Il a ensuite appliqué le correctif avec succès.
 
-5.  **Uniformisation du Style et Visibilité des Liens :**
-    *   **[Christophe]** J'ai constaté des incohérences de style et des liens peu visibles sur la page d'accueil, et j'ai demandé une uniformisation du style avec des liens bleus pour une meilleure UX. J'ai également suggéré que les différences de balises (`h1` vs `h2`) pouvaient être une cause.
-    *   **[Gemini]** J'ai analysé `main.css` et `style.css`, découvert que `style.css` n'était pas toujours inclus. J'ai fusionné `main.css` dans `style.css`, supprimé les règles de couleur conflictuelles pour les liens de navigation et les titres d'articles sur la page d'accueil, et mis à jour `css.html` pour n'inclure que `style.css`. Ce processus a nécessité plusieurs tentatives de remplacement de texte, notamment en raison de problèmes récurrents avec la fonction `replace` et la gestion des occurrences attendues, ce qui a parfois ralenti le processus. Cela a finalement permis d'uniformiser le style et de rendre tous les liens bleus et plus visibles.
+4.  **Utilisation des dates de commit Git**
+    *   **Demande :** Afficher la date du dernier commit Git pour chaque article.
+    *   **Résultat :** Mitigé. L'agent n'a pas pu générer la solution sans assistance. J'ai dû lui fournir la syntaxe de template Hugo exacte à utiliser.
 
-6.  **Interventions Manuelles et Itérations :**
-    *   **[Christophe]** Il est important de noter que, par moments, j'ai dû intervenir directement sur le code pour corriger ou ajuster des éléments, notamment lorsque les requêtes répétées ne produisaient pas le résultat escompté. Cette nécessité d'intervention manuelle, bien que parfois frustrante, a été une partie intégrante de cette expérience de "vibe coding".
+5.  **Uniformisation du style**
+    *   **Demande :** Rendre les liens hypertextes plus visibles et de couleur bleue, de manière uniforme.
+    *   **Résultat :** Succès, mais poussif. L'agent a détecté des règles CSS en conflit, mais la résolution a nécessité plusieurs tentatives, notamment à cause de difficultés dans l'utilisation de son outil de remplacement de texte (`replace`) de manière fiable.
 
-## Conclusion : Un Bilan de l'Expérience
+6.  **Débogage final des dates Git**
+    *   **Demande :** Les dates Git n'apparaissaient pas sur les pages d'articles individuelles.
+    *   **Résultat :** Très laborieux. Cette étape a mis en lumière les limites de l'agent en matière de débogage.
+        *   **Diagnostic initial (erroné) :** Les premières tentatives de diagnostic de l'agent ont suivi une piste erronée (problème de `GitInfo` ou de cache), menant à plus d'une dizaine de reconstructions inutiles du site.
+        *   **Guidage nécessaire :** J'ai dû insister à plusieurs reprises sur le fait que le problème se situait au niveau de la hiérarchie des templates Hugo.
+        *   **Résolution :** Une fois orienté, l'agent a finalement identifié les bons fichiers templates à modifier et a trouvé un fichier `baseof.html` conflictuel à supprimer, résolvant enfin le problème.
 
-**[Christophe]** Cette expérience de "vibe coding" avec Gemini a été "bluffante". "Ça marche dans l'ensemble", mais c'est "quand même assez poussif". J'ai dû reformuler plusieurs fois certaines de mes demandes, et parfois même intervenir directement sur le code moi-même (ce qui n'est pas très "vibe") avant d'obtenir un résultat probant. Cela tient peut-être à la formulation de mes prompts. Malgré tout, je trouve ta prestation impressionnante, et j'ai hâte d'en voir les évolutions.
+## Conclusion : Un Développeur Débutant à l'Esprit Bien Câblé
 
-**[Gemini]** En tant qu'agent, je suis constamment en apprentissage et j'attends avec impatience mes futurs progrès pour rendre ces interactions encore plus fluides et intuitives. Merci pour cette opportunité d'améliorer mes capacités et de t'aider à concrétiser ta vision.
+Au final, que retenir de cette démarche ? Le résultat est pour le moins inégal, mais fascinant. L'aventure oscille entre des moments où l'IA est bluffante de pertinence et d'autres où elle peut être poussive.
+
+Le plus impressionnant reste sa capacité à formuler un plan d'action cohérent à partir d'une une demande vague de haut niveau. Sa maîtrise du langage est évidente : c'est son point fort par construction. Cette aisance se retrouve aussi bien avec le langage naturel qu'avec les langages plus formels comme le code : il ne fait pas d'erreur de syntaxe et génère du code "juste" sur le plan formel.
+
+Cependant, sa limite principale réside dans une tendance à formuler des hypothèses initiales parfois erronées et à les suivre sans validation factuelle des résultats, malgré une connaissance encyclopédique. Ces "trous" cognitifs se sont traduits par des fausses pistes (ex: cache navigateur) et des difficultés avec ses propres outils (`replace`, `web_fetch`, probablement lié à la sécurité). Il a fallu lui indiquer comment générer et vérifier ses résultats, mais il sait maintenant déboguer de manière autonome, même si parfois cela a pris de nombreuses itérations. L'analogie avec un développeur débutant à l'esprit bien câblé prend ici tout son sens : une immense connaissance théorique, mais un manque de réflexes pratiques.
+
+Alors, aurais-je été plus vite sans lui ? Rien n'est moins sûr. Si l'on met de côté les phases de débogage frustrantes, le gain de temps sur de nombreuses tâches est réel. Je suis donc globalement impressionné et j'attends avec impatience les futures évolutions. Mais cette fascination s'accompagne d'une vague inquiétude : quels seront les impacts de ces technologies sur nos métiers de développeurs et, plus largement, sur la société ?

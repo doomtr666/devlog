@@ -1,10 +1,5 @@
 ---
-title: "DevLog"
-draft: false
+title: "Mes Articles"
 ---
 
-AHAHAHAHA
-AHAHAHAHA
-AHAHAHAHA
-AHAHAHAHA
-AHAHAHAHA
+Vous trouverez ici l'ensemble de mes articles, publiés au fil du temps.

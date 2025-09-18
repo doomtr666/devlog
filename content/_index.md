@@ -1,7 +1,5 @@
 ---
-title: "Accueil"
-draft: false
+title: "Bienvenue sur mon blog"
 ---
 
-Bienvenue sur mon DevLog personnel. Ici, vous trouverez mes articles, ma page "À propos" et mon CV."
-
+Ce blog est un espace personnel où je partage des réflexions et des notes sur des sujets qui m'intéressent, au rythme de mes envies.

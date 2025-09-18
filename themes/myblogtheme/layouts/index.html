@@ -1,5 +1,5 @@
 {{ define "main" }}
-<ul>
+<ul class="post-list">
     {{ range first 5 (where .Site.Pages "Section" "posts") }}
     <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
