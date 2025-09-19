@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://doomtr666.github.io/devlog/'
 languageCode = 'fr-FR'
-title = 'My New Hugo Site'
+title = 'DevLog'
 theme = "myblogtheme"
 enableGitInfo = true
 enableRobotsTXT = true
