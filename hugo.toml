@@ -1,10 +1,10 @@
 baseURL = 'https://doomtr666.github.io/devlog/'
+canonifyURLs = true
 languageCode = 'fr-FR'
 title = 'DevLog'
 theme = "myblogtheme"
 enableGitInfo = true
 enableRobotsTXT = true
-relativeURLs = true
 
 [markup.goldmark.renderer]
 unsafe = true
