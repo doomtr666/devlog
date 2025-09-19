@@ -3,6 +3,7 @@ languageCode = 'fr-FR'
 title = 'My New Hugo Site'
 theme = "myblogtheme"
 enableGitInfo = true
+enableRobotsTXT = true
 
 [markup.goldmark.renderer]
 unsafe = true

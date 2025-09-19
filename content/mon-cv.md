@@ -1,5 +1,7 @@
 ---
 title: "Christophe Delacourt | Architecte Principal"
+sitemap:
+  disable: true
 ---
 
 {{< contact_print >}}

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /mon-cv/
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
