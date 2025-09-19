@@ -5,6 +5,7 @@ title = 'DevLog'
 theme = "myblogtheme"
 enableGitInfo = true
 enableRobotsTXT = true
+googleAnalytics = "G-F7W16PR96T"
 
 [markup.goldmark.renderer]
 unsafe = true
