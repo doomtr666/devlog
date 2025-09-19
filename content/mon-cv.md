@@ -11,7 +11,7 @@ Mon approche du leadership technique est claire : définir une vision d'architec
 # Expériences Professionnelles
 
 ## Architecte Principal
-*Obvios - Janvier 2022 - Aujourd'hui*
+**Obvios** | *Janvier 2022 - Aujourd'hui*
 
 * **Leadership & Interface Stratégique :** Pilotage du pôle architecture (4 experts). En tant que garant de la vision technique transverse, je définis les grandes orientations pour les **équipes de développement (~30 personnes)** et suis l'interlocuteur technique référent pour les clients et partenaires sur les projets d'innovation (ANR, PIIEC).
 
@@ -22,7 +22,7 @@ Mon approche du leadership technique est claire : définir une vision d'architec
 * **Conception Stratégique & Sécurité :** Pilotage de la rédaction des spécifications sur des sujets complexes (Haute Disponibilité, architecture `stateless` sur Kubernetes, chaîne DevSecOps).
 
 ## Tech Lead 
-*b<>com Décembre 2017 - Janvier 2022*
+**b<>com** | *Janvier Décembre 2017 - Janvier 2022*
 
 * **Ordonnanceur RAN 4G/IoT :** Conception d'un ordonnanceur 4G optimisé pour l'IoT (`NB-IoT`). Réalisation d'un prototype en collaboration avec un expert 4G et développement d'un simulateur de test avancé pour sa validation.
 
@@ -31,7 +31,7 @@ Mon approche du leadership technique est claire : définir une vision d'architec
 * **Fondations du RAN 5G :** Instauration des pratiques de CI/CD, TDD et Clean Code, et développement d'une bibliothèque de communication multithread haute performance au cœur du RAN 5G.
 
 ## Cofondateur & CTO
-**Insane Unity** *Décembre 2013 - Juillet 2017*
+**Insane Unity** | *Décembre 2013 - Juillet 2017*
 
 * **Management & Lancement :** **Direction de l'équipe de développement (9 ingénieurs)** et coordination technique avec les artistes (équipe totale de 14) jusqu'au lancement commercial du jeu sur Steam.
 
@@ -40,19 +40,19 @@ Mon approche du leadership technique est claire : définir une vision d'architec
 * **Direction Technique & Produit :** Conception de A à Z d'un **moteur de jeu propriétaire** et de l'architecture serveur scalable sur **`AWS`**.
 
 ## Ingénieur R&D & Chef de projet 
-**Caps Entreprise** *Octobre 2007 - Décembre 2013*
+**Caps Entreprise** | *Octobre 2007 - Décembre 2013*
 
 * **Gestion de Projet :** Pilotage de missions de service client et d'optimisation (OpenMP, MPI) avec des équipes projet **jusqu'à 11 personnes**.
 
 * **Conception & Développement :** Conception du langage intermédiaire (IR) d'un compilateur HPC et développement d'un backend bas niveau pour GPU ATI Radeon.
 
 ## Développeur Logiciels Embarqués
-**Yaccom** *Janvier 2005 - Octobre 2007*
+**Yaccom** | *Janvier 2005 - Octobre 2007*
 
 Intégration d'une pile `Bluetooth` et d'un moteur Rich Media sur des plateformes de téléphonie mobile `NXP`.
 
 ## Caporal, Arme des Transmissions
-**Armée de Terre** *Septembre 1998 - Janvier 2005*
+**Armée de Terre** | *Septembre 1998 - Janvier 2005*
 
 Administration et maintenance de systèmes de communication militaires (radios tactiques, satellites). Expérience tremplin vers ma reconversion en informatique.
 

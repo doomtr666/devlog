@@ -1,8 +1,7 @@
 ---
 title: "i3 : Mon parcours dans le développement de moteurs de jeu"
 draft: true
-tags: ["i3", "projet", "moteur-de-jeu", "vulkan"]
-categories: ["développement", "game-dev"]
+tags: ["moteur-de-jeu", "vulkan", "développement"]
 ---
 
 "i3", c'est ma troisième tentative de moteur de jeu. Après "Insanity Engine" (qui a même fini sur Steam), "i3" est mon nouveau terrain de jeu. Un projet expérimental, éducatif, pour repousser les limites du dev de jeux. Pas de blabla, on apprend en faisant.
