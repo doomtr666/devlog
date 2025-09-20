@@ -6,7 +6,7 @@ sitemap:
 
 {{< contact_print >}}
 
-Mon approche du leadership technique est claire : définir une vision d'architecture de haut niveau, puis faire confiance à des équipes de talent pour la concrétiser avec autonomie. Mon expertise de développeur garantit que cette vision est pragmatique, et je valide **ses points les plus critiques** par le prototypage, ce qui me permet de fédérer l'équipe autour de solutions concrètes et éprouvées. Je cherche un rôle de leader technique où je pourrai guider une équipe vers l'excellence technique, en alliant stratégie ambitieuse et pragmatisme technique.
+Je suis un architecte qui n'a jamais cessé d'être développeur. C'est le cœur de mon approche : définir une vision stratégique et la rendre crédible en prototypant moi-même ses aspects les plus complexes. Je cherche à guider une équipe talentueuse vers des solutions ambitieuses, conçues pour être livrées, en leur donnant la confiance et l'autonomie pour innover.
 
 # Expériences Professionnelles
 
