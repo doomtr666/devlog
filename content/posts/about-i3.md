@@ -13,17 +13,31 @@ tags: ["moteur-de-jeu", "vulkan", "développement"]
 
 ## Sous le capot : La technique, cash
 
-### Rendu : Vulkan, ça envoie du lourd
+### Rendu : Une architecture flexible avec Vulkan
 
-Au cœur de "i3", un moteur de rendu Vulkan. Pourquoi Vulkan ? Contrôle total sur le GPU, performances au top, rendu efficace. Ça force à comprendre les pipelines graphiques, la gestion mémoire, le multithreading. DirectX 12 ? Peut-être un jour, pour le fun.
+Le rendu dans "i3" est conçu pour être modulaire. J'ai mis en place une interface de `render_backend` générique qui abstrait l'implémentation concrète du rendu. Pour l'instant, le seul backend est basé sur Vulkan.
 
-### Polyglotte : C, C++, C#, le trio gagnant
+Pourquoi ce choix ? Vulkan offre un contrôle bas niveau sur le matériel, des performances optimales et une excellente portabilité sur mes cibles principales (Windows et Linux). Même si l'architecture permettrait d'ajouter d'autres backends comme DirectX 12, ce n'est pas une priorité. L'interface est surtout là pour la flexibilité future, si jamais le besoin de supporter d'autres plateformes se présentait.
 
-"i3" mélange les langages : C (80.7%), C++ (16.0%), C# (2.1%). C et C++ pour la perf pure, là où ça compte (rendu, logique moteur). C# pour les outils, le scripting, ou la logique de jeu moins critique. Efficace, quoi.
+Se concentrer sur Vulkan me permet de maîtriser en profondeur les pipelines graphiques modernes, la gestion de la mémoire et le multithreading, qui sont des compétences cruciales pour le développement de moteurs de jeu performants.
 
-### Build : Bazel, le maniaque de la propreté
+### Polyglotte : C, C++, C# - Le bon outil pour chaque tâche
 
-Bazel (avec Bazelisk) gère le build. Pourquoi ? Parce que c'est propre, reproductible et rapide. Idéal pour un projet complexe et multi-langages comme "i3". Ça assure des builds cohérents, même quand le code grossit.
+"i3" est un projet polyglotte, avec une répartition actuelle de C (80.7%), C++ (16.0%), et C# (2.1%). Ce mélange n'est pas un hasard, c'est une philosophie : utiliser le bon langage pour le bon problème.
+
+**C#** est utilisé pour les problématiques de haut niveau. C'est un choix classique dans l'industrie pour le développement d'outils (`tooling`) et pour la logique de jeu (`game logic`). Sa richesse fonctionnelle et sa simplicité d'utilisation en font un excellent candidat pour ces tâches.
+
+**C** est au cœur du moteur pour les systèmes bas niveau. Plus qu'une simple question de performance, c'est une approche. Traiter les problèmes bas niveau avec un langage bas niveau. L'ABI C est un standard de fait, ce qui garantit une interopérabilité simple et robuste entre les différents modules du moteur. La simplicité du C force à se concentrer sur l'essentiel : la résolution du problème, sans se perdre dans les méandres du langage.
+
+Et le **C++** ? Il est présent, mais son usage est limité. Je le considère comme un langage trop complexe dont l'ABI n'est pas standard. Le risque est de passer plus de temps à "faire du C++" (faut-il utiliser la *move semantics* ici ?) qu'à résoudre le problème fonctionnel.
+
+### Build : Bazel, pour un build unifié et maîtrisé
+
+Le système de build de "i3" est géré par Bazel (via Bazelisk). Oui, Bazel peut être complexe, mais il répond parfaitement aux objectifs du projet.
+
+Le principal avantage est d'avoir un **build unifié** pour tous les langages : C, C++ et C#. De plus, il est relativement simple d'étendre le système avec des règles personnalisées pour intégrer des outils externes.
+
+J'ai une aversion pour les méta-générateurs de build comme CMake, qui pallient l'absence d'un système de build standard en C/C++ (ce qui m'a déjà donné l'idée de proposer un `std::build` au comité C++, mais c'est une autre histoire, peut-être pour un futur article...). Pour moi, c'est une hérésie. Bazel, au contraire, offre une approche directe et cohérente, garantissant des builds reproductibles et rapides, ce qui est crucial pour un projet de cette complexité.
 
 ## Ce que i3 sait faire (déjà)
 

@@ -6,7 +6,7 @@ sitemap:
 
 {{< contact_print >}}
 
-Je suis un architecte qui n'a jamais cessé d'être développeur. C'est le cœur de mon approche : définir une vision stratégique et la rendre crédible en prototypant moi-même ses aspects les plus complexes. Ce qui me motive, c'est de guider une équipe talentueuse vers des solutions ambitieuses, conçues pour être livrées, en leur donnant la confiance et l'autonomie pour innover.
+Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mon approche : définir une vision stratégique et la rendre crédible en prototypant moi-même ses aspects les plus complexes. Ce qui me motive, c'est de guider une équipe talentueuse vers des solutions ambitieuses, conçues pour être livrées, en leur donnant la confiance et l'autonomie pour innover.
 
 # Expériences Professionnelles
 
