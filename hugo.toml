@@ -5,7 +5,13 @@ title = 'DevLog'
 theme = "myblogtheme"
 enableGitInfo = true
 enableRobotsTXT = true
-googleAnalytics = "G-F7W16PR96T"
+[services]
+  [services.googleAnalytics]
+    id = "G-F7W16PR96T"
+
+[privacy]
+  [privacy.googleAnalytics]
+    respectDoNotTrack = true
 
 [markup.goldmark.renderer]
 unsafe = true
