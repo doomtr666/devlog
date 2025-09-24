@@ -33,7 +33,7 @@ Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mo
 ## Cofondateur & CTO
 **Insane Unity** | *Décembre 2013 - Juillet 2017*
 
-* **Management & Lancement :** **Direction de l'équipe de développement (9 ingénieurs)** et coordination technique avec les artistes (équipe totale de 14) jusqu'au lancement commercial du jeu sur Steam.
+* **Management & Lancement :** **Direction de l'équipe de développement (9 ingénieurs)** et coordination technique avec les artistes (équipe totale de 14) jusqu'au lancement commercial du [jeu sur Steam](https://store.steampowered.com/app/599040/Win_That_War/).
 
 * **Innovation & Financement :** Obtention du statut de **Jeune Entreprise Innovante (JEI)**, permettant de sécuriser un financement de **1 million d'euros** (investisseur privé & Bpifrance), grâce à la technologie propriétaire que j'ai développée.
 
