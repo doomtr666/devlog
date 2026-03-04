@@ -17,12 +17,11 @@ Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mo
 
 * **Stratégie Technique & Qualité :** Animation d'initiatives transverses pour améliorer les processus et la qualité du code : participation à l'élaboration des stratégies de test et de mise à jour des composants, mise en place du secure coding, animation d'ateliers sur les bonnes pratiques de développement, et pilotage de chantiers sur le feature flipping et la réduction de la dette technique.
 
-* **Veille, Prototypage & Innovation :** Veille technologique et réalisation de **PoCs déterminants** (IDPS, edge sécurisé, dataplane 5G à 100 Gb/s avec accélérateur Napatech...). J'ai également **proposé et acté l'objectif de prototyper un dataplane 5G en eBPF** pour adresser la dette technique.
+* **Dernier Design d'Architecture (Système NDR) :** Conception de bout en bout d'un système de détection réseau (NDR) cloud-native : ingestion directe metrics/logs, moteur de corrélation asynchrone (`Go`/`Lua`), intégration Kubernetes `CRD`. Pour valider l'approche, j'ai développé la V0.1 de sa brique la plus critique (*SigStreak*), un compilateur `C++`/`LLVM` générant des règles de filtrage à 10 Gb/s directement injectées dans le noyau (`eBPF`/`XDP`). Ce prototype, validé et présenté aux prospects, m'a permis d'embarquer l'équipe sur la pré-production de l'ensemble du système.
 
-* **Conception Stratégique & Sécurité :** Pilotage de la rédaction des spécifications sur des sujets complexes (Haute Disponibilité, architecture `stateless` sur Kubernetes, chaîne DevSecOps).
-
+* **Conception Stratégique Transverse :** Pilotage de la rédaction des architectures et spécifications sur des sujets complexes et structurants pour l'entreprise (Système Haute Disponibilité, architecture `stateless` sur Kubernetes, refonte de la chaîne DevSecOps).
 ## Tech Lead 
-**b<>com** | *Janvier Décembre 2017 - Janvier 2022*
+**b<>com** | *Décembre 2017 - Janvier 2022*
 
 * **Ordonnanceur RAN 4G/IoT :** Conception d'un ordonnanceur 4G optimisé pour l'IoT (`NB-IoT`). Réalisation d'un prototype en collaboration avec un expert 4G et développement d'un simulateur de test avancé pour sa validation.
 
@@ -65,9 +64,9 @@ Administration et maintenance de systèmes de communication militaires (radios t
 * Plateformes d'observabilité (`Prometheus`, `Grafana`, `Loki`)
 * Sécurité Applicative & DevSecOps (`SonarQube`, `Trivy`, `CI/CD`)
 
-**Développement & Haute Performance**
+**Ingénierie & Haute Performance**
 
-* **Langages principaux :** `C/C++` (temps réel, optimisation), `Go`, `Python`, `C#`
+* **Stack & Maîtrise technologique :** `C/C++` (temps réel, optimisation), `Rust`, `Go`, `Python`, `C#`
 * **Systèmes & Bas Niveau :** Compilateurs (`LLVM`), Rendu 3D & GPGPU (`Vulkan`, `HLSL`, `CUDA`/`OpenCL`)
 * **HPC & Optimisation de Performance :** `OpenMP`, `MPI`
 
@@ -93,7 +92,9 @@ Administration et maintenance de systèmes de communication militaires (radios t
 * [Considering Sync Word and Header Error Rates for...](https://www.researchgate.net/publication/349949777_Considering_Sync_Word_and_Header_Error_Rates_for_Performance_Assessment_in_LoRa_System) - Avril 2021
 * [Quantization Methods Based on Norms for Complex...](https://www.researchgate.net/publication/363576337_Quantization_Methods_Based_on_Norms_for_Complex_Gaussian-Like_Signals_in_SDR_Applications) - Août 2022
 
-# Formation
+# Formation & Apprentissage Continu
+
+*Autodidacte par nature, j'ai forgé mon expertise par la pratique intensive, l'expérimentation technique (prototypage, réalisation de moteurs et compilateurs) et la conception de systèmes distribués de bout en bout.*
 
 * **2024** : Perfectionnement en anglais – Yes 'n You
 * **2020** : MOOC en traitement du signal – EPFL via Coursera
