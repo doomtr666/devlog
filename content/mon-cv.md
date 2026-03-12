@@ -6,6 +6,8 @@ sitemap:
 
 {{< contact_print >}}
 
+{{< print_button >}}
+
 Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mon approche : définir une vision stratégique et la rendre crédible en prototypant moi-même ses aspects les plus complexes. Ce qui me motive, c'est de guider une équipe talentueuse vers des solutions ambitieuses, conçues pour être livrées, en leur donnant la confiance et l'autonomie pour innover.
 
 # Expériences Professionnelles
@@ -94,7 +96,7 @@ Administration et maintenance de systèmes de communication militaires (radios t
 
 # Formation & Apprentissage Continu
 
-*Autodidacte par nature, j'ai forgé mon expertise par la pratique intensive, l'expérimentation technique (prototypage, réalisation de moteurs et compilateurs) et la conception de systèmes distribués de bout en bout.*
+*Autodidacte par nature, j'ai forgé mon expertise par la pratique intensive, l'expérimentation technique et la conception de systèmes distribués de bout en bout.*
 
 * **2024** : Perfectionnement en anglais – Yes 'n You
 * **2020** : MOOC en traitement du signal – EPFL via Coursera

@@ -2,20 +2,28 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
-    background-color: #f5f5f5; /* Consistent off-white background */
+    background-color: #f5f5f5;
+    /* Consistent off-white background */
     color: #333;
     line-height: 1.5;
-    font-size: 0.85em; /* Reduced base font size */
+    font-size: 0.85em;
+    /* Reduced base font size */
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px; /* Consistent padding, no separate background */
+    padding: 40px 20px;
+    /* Consistent padding, no separate background */
     /* Removed box-shadow, border-radius, margin-top, margin-bottom */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #222;
     margin-top: 0.8em;
@@ -23,9 +31,17 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
-h1 { font-size: 2.4em; }
-h2 { font-size: 1.9em; }
-h3 { font-size: 1.45em; }
+h1 {
+    font-size: 2.4em;
+}
+
+h2 {
+    font-size: 1.9em;
+}
+
+h3 {
+    font-size: 1.45em;
+}
 
 p {
     margin-bottom: 0.7em;
@@ -33,13 +49,15 @@ p {
 
 /* Links */
 a {
-    color: #4a90e2; /* Desaturated blue - now consistent for all links */
+    color: #4a90e2;
+    /* Desaturated blue - now consistent for all links */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #357ABD; /* Slightly darker desaturated blue on hover */
+    color: #357ABD;
+    /* Slightly darker desaturated blue on hover */
     text-decoration: underline;
 }
 
@@ -73,7 +91,8 @@ nav ul li {
 }
 
 nav a {
-    font-weight: 400; /* Lighter font weight for discretion */
+    font-weight: 400;
+    /* Lighter font weight for discretion */
     font-size: 0.9em;
     /* color: #777; -- REMOVED to inherit general 'a' color */
     padding: 5px 10px;
@@ -82,9 +101,12 @@ nav a {
 }
 
 nav a:hover {
-    color: #4a90e2; /* Use new desaturated blue for nav hover */
-    background-color: transparent; /* No background on hover */
-    text-decoration: underline; /* Underline on hover for clarity */
+    color: #4a90e2;
+    /* Use new desaturated blue for nav hover */
+    background-color: transparent;
+    /* No background on hover */
+    text-decoration: underline;
+    /* Underline on hover for clarity */
 }
 
 /* Main Content Area */
@@ -99,7 +121,8 @@ footer {
     border-top: 1px solid #e0e0e0;
     text-align: center;
     font-size: 0.75em;
-    color: #999; /* Softer color for footer text */
+    color: #999;
+    /* Softer color for footer text */
     /* background-color: #ffffff; Removed for consistent background */
 }
 
@@ -125,14 +148,17 @@ code {
 /* Article List (for homepage) */
 ul {
     list-style: disc;
-    padding-left: 20px; /* Align with container padding */
+    padding-left: 20px;
+    /* Align with container padding */
 }
 
 .post-list li {
     margin-bottom: 5px;
     padding-bottom: 10px;
-    padding-left: 10px; /* Indent text for readability */
-    line-height: 1.2; /* Reduced line height for bullet points */
+    padding-left: 10px;
+    /* Indent text for readability */
+    line-height: 1.2;
+    /* Reduced line height for bullet points */
     border-bottom: 1px dashed #eee;
 }
 
@@ -148,7 +174,8 @@ ul {
 }
 
 .post-list li a:hover {
-    color: #4a90e2; /* Use new desaturated blue for article link hover */
+    color: #4a90e2;
+    /* Use new desaturated blue for article link hover */
 }
 
 .post-list li time {
@@ -161,45 +188,89 @@ ul {
 /* Print styles - Enhanced for better print output */
 @media print {
     body {
-        background-color: #fff; /* White background for print to save ink */
-        font-size: 10pt; /* Smaller base font size for print */
+        background-color: #fff;
+        /* White background for print to save ink */
+        font-size: 10pt;
+        /* Smaller base font size for print */
     }
-    header, header nav, footer {
+
+    header,
+    header nav,
+    footer,
+    .no-print {
         display: none !important;
-        visibility: hidden !important; /* Add visibility hidden */
-        height: 0 !important; /* Collapse height */
-        margin: 0 !important; /* Remove margins */
-        padding: 0 !important; /* Remove padding */
-        line-height: 0 !important; /* Collapse line height */
+        visibility: hidden !important;
+        /* Add visibility hidden */
+        height: 0 !important;
+        /* Collapse height */
+        margin: 0 !important;
+        /* Remove margins */
+        padding: 0 !important;
+        /* Remove padding */
+        line-height: 0 !important;
+        /* Collapse line height */
     }
+
     /* Rules for page breaks */
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         page-break-after: avoid;
-        margin-top: 0.5em; /* Reduce top margin */
-        margin-bottom: 0.3em; /* Reduce bottom margin */
-        line-height: 1.2; /* Adjust line height */
+        margin-top: 0.5em;
+        /* Reduce top margin */
+        margin-bottom: 0.3em;
+        /* Reduce bottom margin */
+        line-height: 1.2;
+        /* Adjust line height */
     }
+
     h1 {
         page-break-before: avoid;
-        font-size: 1.8em; /* Smaller font size for h1 */
+        font-size: 1.8em;
+        /* Smaller font size for h1 */
     }
+
     h2 {
-        font-size: 1.5em; /* Smaller font size for h2 */
-        border-bottom: 1px solid #eee; /* Subtle bottom border */
-        padding-bottom: 0.2em; /* Add some padding below the border */
-        margin-bottom: 0.5em; /* Adjust margin */
+        font-size: 1.5em;
+        /* Smaller font size for h2 */
+        border-bottom: 1px solid #eee;
+        /* Subtle bottom border */
+        padding-bottom: 0.2em;
+        /* Add some padding below the border */
+        margin-bottom: 0.5em;
+        /* Adjust margin */
     }
+
     h3 {
-        font-size: 1.2em; /* Smaller font size for h3 */
-        color: #555; /* Slightly darker color for subheadings */
-        margin-top: 0.8em; /* Adjust margin */
+        font-size: 1.2em;
+        /* Smaller font size for h3 */
+        color: #555;
+        /* Slightly darker color for subheadings */
+        margin-top: 0.8em;
+        /* Adjust margin */
     }
-    h1, h2, h3, h4, h5, h6, p, ul, ol, .print-only-contact {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    .print-only-contact {
         page-break-inside: avoid;
     }
-    pre, blockquote {
+
+    pre,
+    blockquote {
         page-break-inside: avoid;
     }
+
     /* Ensure images are scaled down for print if any were added */
     img {
         max-width: 100%;
@@ -208,25 +279,40 @@ ul {
 
     /* Specific styles for contact information in print */
     .print-only-contact {
-        font-size: 0.8em; /* Even smaller font size for contact info */
-        margin-bottom: 0.5em; /* Further reduce bottom margin */
-        text-align: left; /* Align content to the left */
+        font-size: 0.8em;
+        /* Even smaller font size for contact info */
+        margin-bottom: 0.5em;
+        /* Further reduce bottom margin */
+        text-align: left;
+        /* Align content to the left */
     }
+
     .print-only-contact ul {
-        padding-left: 0; /* Remove default ul padding */
-        list-style: none; /* Remove bullet points */
-        margin: 0; /* Remove default ul margin */
-        display: inline; /* Make the ul behave like an inline element */
+        padding-left: 0;
+        /* Remove default ul padding */
+        list-style: none;
+        /* Remove bullet points */
+        margin: 0;
+        /* Remove default ul margin */
+        display: inline;
+        /* Make the ul behave like an inline element */
     }
+
     .print-only-contact ul li {
-        display: inline; /* Display list items inline */
-        margin-right: 0.8em; /* Add some space between items */
+        display: inline;
+        /* Display list items inline */
+        margin-right: 0.8em;
+        /* Add some space between items */
     }
+
     .print-only-contact ul li:not(:last-child)::after {
-        content: " | "; /* Add a separator between items */
+        content: " | ";
+        /* Add a separator between items */
     }
+
     .print-only-contact ul li img {
-        width: 16px; /* Smaller icons */
+        width: 16px;
+        /* Smaller icons */
         height: 16px;
         vertical-align: middle;
     }
@@ -262,7 +348,8 @@ ul {
 }
 
 .credit-item img {
-    height: 24px; /* Hauteur uniforme pour les logos */
+    height: 24px;
+    /* Hauteur uniforme pour les logos */
 }
 
 /* Styling for social icons in content */
@@ -270,5 +357,37 @@ ul {
     width: 20px;
     height: 20px;
     vertical-align: middle;
-    margin-right: 5px; /* Add some space between icon and text if any */
+    margin-right: 5px;
+    /* Add some space between icon and text if any */
+}
+
+/* Print Button Styling */
+.print-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn-print {
+    background-color: transparent;
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-print:hover {
+    background-color: #4a90e2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-print svg {
+    fill: currentColor;
 }
