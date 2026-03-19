@@ -1,66 +1,38 @@
 ---
-title: "i3 : Mon parcours dans le développement de moteurs de jeu"
+title: "i3 : Pérégrinations aux frontières du Render Graph"
+date: 2026-03-19
+tags: ["Moteur 3D", "Vulkan", "Render Graph", "Architecture"]
+categories: ["Journal de Dev", "i3"]
 draft: true
-tags: ["moteur-de-jeu", "vulkan", "développement"]
 ---
 
-"i3", c'est ma troisième tentative de moteur de jeu. Après "Insanity Engine" (qui a même fini sur Steam), "i3" est mon nouveau terrain de jeu. Un projet expérimental, éducatif, pour repousser les limites du dev de jeux. Pas de blabla, on apprend en faisant.
-<!--more-->
+### L'héritage : De l'Insanity Engine à la liquidation
 
-## i3 : Le concept, sans fioritures
+Tout ça part d'une vieille histoire. J'ai codé la "techno lourde" (moteur 3D, physique, réseau, serveur) pour un jeu sorti sur Steam : [Win That War!](https://store.steampowered.com/app/599040/Win_That_War/). À l'époque, c'était du DX11, ça s'appelait l'**Insanity Engine**. J'étais le CTO du merdier, à porter le projet via des levées de fonds et les joyeusetés habituelles (CIR, JEI) grâce à ma techno. Mais si le projet n'a pas été fructueux commercialement (on a fait des conneries, les ventes n'ont pas suivi et on a fini par liquider), je refuse de parler d'échec technique. On a livré un vrai truc sur Steam. Et que ce soit à Rennes ou ailleurs, qui peut en dire autant ? Statistiquement, on parle d'un club qui regroupe moins de 0,001 % de la population mondiale. Depuis, la PI a été rachetée par Bidaj (aucune idée de qui ils sont) et je n'ai plus rien à voir là-dedans, mais je reste l'auteur du code.
 
-"i3" n'est pas juste du code. C'est une plateforme pour tester des techniques de rendu modernes et des architectures de moteur. L'objectif ? Apprendre. Mettre les mains dans le cambouis avec les API graphiques bas niveau et les systèmes complexes. Ma quête perso : une base solide et flexible pour mes futurs jeux.
+Attention, si j'ai pondu le moteur, le jeu est le fruit du boulot phénoménal d'une équipe talentueuse. Et on en a chié. Entre les galères techniques sur le réseau, les artistes qui se foutaient presque sur la gueule pour des choix de DA, et des bugs proprement cringe... 
 
-## Sous le capot : La technique, cash
+Côté rendu, j'ai aussi appris à gérer le feedback "créatif". Du genre le mec qui débarque devant ton écran et te lâche : "Ah c'est pas mal, mais je trouve que ça manque un peu de peps !". Démerde-toi pour convertir un "niveau de peps" en paramètres de BSDF et en tone mapping dans ton shader... 
 
-### Rendu : Une architecture flexible avec Vulkan
+Je me souviens notamment d'un bug sur le déplacement en vue planétaire : il fallait juste déplacer la caméra sur l'arc optimal entre deux points (segment du grand cercle). Sans déconner, ça a pris des semaines. "On comprend pas, on a refait la trigo et des fois ça merde encore". 
 
-Le rendu dans "i3" est conçu pour être modulaire. J'ai mis en place une interface de `render_backend` générique qui abstrait l'implémentation concrète du rendu. Pour l'instant, le seul backend est basé sur Vulkan.
+Mais c'était aussi le son au top et la musique vraiment cool, gros boulot de notre ingé son avec les **Bikini Machine**. Bref, avec le recul de ces 8 dernières années (ça a un peu vieilli, forcément), ça reste la meilleure expérience de dev et humaine de ma carrière.
 
-Pourquoi ce choix ? Vulkan offre un contrôle bas niveau sur le matériel, des performances optimales et une excellente portabilité sur mes cibles principales (Windows et Linux). Même si l'architecture permettrait d'ajouter d'autres backends comme DirectX 12, ce n'est pas une priorité. L'interface est surtout là pour la flexibilité future, si jamais le besoin de supporter d'autres plateformes se présentait.
+Entre-temps, j'ai usé pas mal de temps perso sur **i2** (Insanity Engine 2). C'était mon bac à sable en OpenGL, jamais rien publié, juste des tests dans tous les sens. Et puis est arrivé **Vulkan**. Open standard, puissant, performant... J'ai été séduit immédiatement. C'est là qu'est né **i3**.
 
-Se concentrer sur Vulkan me permet de maîtriser en profondeur les pipelines graphiques modernes, la gestion de la mémoire et le multithreading, qui sont des compétences cruciales pour le développement de moteurs de jeu performants.
+### Le voyage (et les sorties de route)
 
-### Polyglotte : C, C++, C# - Le bon outil pour chaque tâche
+i3, c'est ma troisième tentative. On s'en branle un peu du langage, j'aurais pu faire ça en C++ ou n'importe quoi d'autre. Si je suis passé sur Rust, c'est purement utilitaire : j'ai besoin d'un langage système avec une vraie gestion de dépendances qui ne me demande pas d'y passer mes nuits. La sécurité mémoire ou le threading ? Très honnêtement, j'en ai rien à branler. Ce qui compte, c'est ce qu'il y a sous le capot.
 
-"i3" est un projet polyglotte, avec une répartition actuelle de C (80.7%), C++ (16.0%), et C# (2.1%). Ce mélange n'est pas un hasard, c'est une philosophie : utiliser le bon langage pour le bon problème.
+1. **L'essai C# :** J'adore ce langage, mais dès qu'on attaque le transfert de données massif vers le GPU, c'est trop mou.
+2. **L'essai C :** J'ai tenté une approche type *AMD V-EZ* (virtualisation des listes de commandes). Mais entre la misère des dépendances et le blocage psychologique de retomber dans le vieux papier de DICE sur les Render Graphs... la parallélisation est forcément suboptimale. C'est une misère pour un homme seul.
 
-**C#** est utilisé pour les problématiques de haut niveau. C'est un choix classique dans l'industrie pour le développement d'outils (`tooling`) et pour la logique de jeu (`game logic`). Sa richesse fonctionnelle et sa simplicité d'utilisation en font un excellent candidat pour ces tâches.
+### Le pivot : Le Render Graph "avec quelques twists"
 
-**C** est au cœur du moteur pour les systèmes bas niveau. Plus qu'une simple question de performance, c'est une approche. Traiter les problèmes bas niveau avec un langage bas niveau. L'ABI C est un standard de fait, ce qui garantit une interopérabilité simple et robuste entre les différents modules du moteur. La simplicité du C force à se concentrer sur l'essentiel : la résolution du problème, sans se perdre dans les méandres du langage.
+Le point marquant de cette troisième itération, c'est mon **renoncement** : je suis passé au **Render Graph**. Mais pas l'usine à gaz classique. J'ai injecté quelques twists pour éviter de reproduire les structures trop rigides que j'ai croisées par le passé. 
 
-Et le **C++** ? Il est présent, mais son usage est limité. Je le considère comme un langage trop complexe dont l'ABI n'est pas standard. Le risque est de passer plus de temps à "faire du C++" (faut-il utiliser la *move semantics* ici ?) qu'à résoudre le problème fonctionnel.
+L'idée, c'est d'automatiser ce qui est pénible dans Vulkan (barrières, transitions de layouts) sans pour autant perdre le contrôle fin sur l'exécution. Je commence enfin à être content du résultat.
 
-### Build : Bazel, pour un build unifié et maîtrisé
+Ceci est mon journal de bord. On ne va pas parler de la "beauté du code", mais de pérégrinations techniques aux frontières de l'inconnu, là où on forge des outils qui fonctionnent vraiment.
 
-Le système de build de "i3" est géré par Bazel (via Bazelisk). Oui, Bazel peut être complexe, mais il répond parfaitement aux objectifs du projet.
-
-Le principal avantage est d'avoir un **build unifié** pour tous les langages : C, C++ et C#. De plus, il est relativement simple d'étendre le système avec des règles personnalisées pour intégrer des outils externes.
-
-J'ai une aversion pour les méta-générateurs de build comme CMake, qui pallient l'absence d'un système de build standard en C/C++ (ce qui m'a déjà donné l'idée de proposer un `std::build` au comité C++, mais c'est une autre histoire, peut-être pour un futur article...). Pour moi, c'est une hérésie. Bazel, au contraire, offre une approche directe et cohérente, garantissant des builds reproductibles et rapides, ce qui est crucial pour un projet de cette complexité.
-
-## Ce que i3 sait faire (déjà)
-
-Encore expérimental, mais "i3" montre déjà les muscles :
-
-*   **`vk_draw_cubes`** : Un cube, en Vulkan. La base, mais ça marche.
-*   **`game_draw_cubes`** : Le moteur en action, pour rendre des objets dans un jeu.
-
-Ces démos valident le cœur du moteur.
-
-## Les galères et les leçons
-
-Développer un moteur from scratch, surtout avec Vulkan, c'est pas une partie de plaisir. Pipelines graphiques, synchro mémoire, interopérabilité... Chaque problème est une leçon. On plonge dans les systèmes bas niveau, on comprend les graphiques. Ça pique, mais on progresse.
-
-## La suite : Pas de plan fixe, mais des idées
-
-La feuille de route de "i3" est vivante, elle évolue avec l'expérimentation. Quelques pistes :
-
-*   Plus de rendu (lumières avancées, post-processing).
-*   Un moteur physique digne de ce nom.
-*   Des outils de dev de jeux plus poussés.
-*   Explorer DirectX 12.
-
-## Conclusion
-
-"i3", c'est ma preuve que la curiosité paie. Un projet pour maîtriser les graphiques modernes et l'architecture moteur. C'est en cours, mais la base est là pour de futures explorations. Et qui sait, de nouveaux jeux.
+---
