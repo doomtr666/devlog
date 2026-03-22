@@ -17,7 +17,7 @@ Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mo
 
 * **Leadership & Interface Stratégique :** Pilotage du pôle architecture (4 experts). En tant que garant de la vision technique transverse, je définis les grandes orientations pour les **équipes de développement (~30 personnes)** et suis l'interlocuteur technique référent pour les clients et partenaires sur les projets d'innovation (ANR, PIIEC).
 
-* **Stratégie Technique & Qualité :** Animation d'initiatives transverses pour améliorer les processus et la qualité du code : participation à l'élaboration des stratégies de test et de mise à jour des composants, mise en place du secure coding, animation d'ateliers sur les bonnes pratiques de développement, et pilotage de chantiers sur le feature flipping et la réduction de la dette technique.
+* **Stratégie Technique & Qualité :** Animation d'initiatives transverses pour améliorer les processus et la qualité du code : participation à l'élaboration des stratégies de test et de mise à jour des composants, mise en place du secure coding, animation d'ateliers sur les bonnes pratiques de développement, et pilotage de chantiers tels que le feature flipping et la réduction de la dette technique.
 
 * **Dernier Design d'Architecture (Système NDR) :** Conception de bout en bout d'un système de détection réseau (NDR) cloud-native : ingestion directe metrics/logs, moteur de corrélation asynchrone (`Go`/`Lua`), intégration Kubernetes `CRD`. Pour valider l'approche, j'ai développé la V0.1 de sa brique la plus critique (*SigStreak*), un compilateur `C++`/`LLVM` générant des règles de filtrage à 10 Gb/s directement injectées dans le noyau (`eBPF`/`XDP`). Ce prototype, validé et présenté aux prospects, m'a permis d'embarquer l'équipe sur la pré-production de l'ensemble du système.
 
@@ -107,4 +107,4 @@ Administration et maintenance de systèmes de communication militaires (radios t
 # Langues & Loisirs
 
 * **Langues** : Français (natif), Anglais (professionnel).
-* **Loisirs** : Jeux vidéo, Jeux de rôle, Wargaming, Cuisine, Lecture.
+* **Loisirs** : Développement de jeux vidéo (Rust, Vulkan, Architecture moteur), Jeux vidéo, Jeux de rôle, Wargaming, Cuisine, Lecture.

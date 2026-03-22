@@ -3,6 +3,7 @@ title: "Le Culture Fit : Autopsie d'une Mort Cérébrale Corporate"
 date: 2026-03-19
 tags: ["Informatique Politique", "Éthique", "Management", "Déontologie"]
 categories: ["Manifeste"]
+draft: true
 ---
 
 Après huit ans de stabilité dans le même poste, je remets le nez dans le marché du travail. Et là, c'est le choc. 

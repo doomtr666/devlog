@@ -1,6 +1,6 @@
 ---
 title: "Vibe Coding avec Gemini : Évaluation d'un Agent IA pour la Création d'un Site"
-draft: false
+draft: true
 tags: ["gemini", "ai", "développement", "vibe-coding", "hugo"]
 ---
 

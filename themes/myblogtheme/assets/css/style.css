@@ -219,6 +219,7 @@ ul {
     h5,
     h6 {
         page-break-after: avoid;
+        break-after: avoid;
         margin-top: 0.5em;
         /* Reduce top margin */
         margin-bottom: 0.3em;
@@ -264,6 +265,15 @@ ul {
     ol,
     .print-only-contact {
         page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    h1 + p,
+    h2 + p,
+    h3 + p,
+    h4 + p {
+        page-break-before: avoid;
+        break-before: avoid;
     }
 
     pre,
@@ -299,15 +309,15 @@ ul {
     }
 
     .print-only-contact ul li {
-        display: inline;
-        /* Display list items inline */
-        margin-right: 0.8em;
+        display: block;
+        /* Display list items on new lines */
+        margin-bottom: 0.2em;
         /* Add some space between items */
     }
 
     .print-only-contact ul li:not(:last-child)::after {
-        content: " | ";
-        /* Add a separator between items */
+        content: "";
+        /* Removed separator for vertical layout */
     }
 
     .print-only-contact ul li img {
