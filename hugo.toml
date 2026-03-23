@@ -3,7 +3,7 @@ canonifyURLs = true
 languageCode = 'fr-FR'
 title = 'DevLog'
 theme = "myblogtheme"
-enableGitInfo = true
+enableGitInfo = false
 enableRobotsTXT = true
 [markup.goldmark.renderer]
 unsafe = true
