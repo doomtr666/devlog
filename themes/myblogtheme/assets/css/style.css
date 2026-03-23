@@ -70,17 +70,13 @@ header {
 }
 
 /* Navigation */
-nav {
-    max-width: 800px;
-    margin: 0 auto;
-}
 
 nav ul {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
 }
 
@@ -107,6 +103,36 @@ nav a:hover {
     /* No background on hover */
     text-decoration: underline;
     /* Underline on hover for clarity */
+}
+
+/* Header Container and Language Switcher */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.language-switcher ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+.lang-link {
+    font-size: 0.8em;
+    color: #888;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.lang-link:hover {
+    color: #4a90e2;
+    text-decoration: underline;
 }
 
 /* Main Content Area */

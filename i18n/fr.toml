@@ -1,0 +1,26 @@
+[home]
+other = "Accueil"
+
+[posts]
+other = "DevLog"
+
+[about]
+other = "À propos"
+
+[resume]
+other = "Mon CV"
+
+[read_more]
+other = "Lire la suite"
+
+[tags]
+other = "Mots-clés"
+
+[categories]
+other = "Catégories"
+
+[goatcounter_info]
+other = "Ce site utilise <a href=\"https://www.goatcounter.com\" target=\"_blank\">GoatCounter</a> pour des statistiques anonymes. Il ne collecte aucune donnée personnelle et n'utilise aucun cookie."
+
+[license]
+other = "Licence CC BY-SA 4.0"

@@ -1,30 +1,70 @@
 baseURL = 'https://doomtr666.github.io/devlog/'
 canonifyURLs = true
-languageCode = 'fr-FR'
-title = 'DevLog'
+defaultContentLanguage = 'fr'
 theme = "myblogtheme"
 enableGitInfo = false
 enableRobotsTXT = true
+
 [markup.goldmark.renderer]
 unsafe = true
 
-[menus]
-  [[menus.main]]
-    name = 'Accueil'
-    pageRef = '/'
-    weight = 10
-  [[menus.main]]
-    name = 'DevLog'
-    pageRef = '/posts'
-    weight = 20
-  [[menus.main]]
-    name = 'A propos'
-    pageRef = '/a-propos'
-    weight = 30
-  [[menus.main]]
-    name = 'Mon CV'
-    pageRef = '/mon-cv'
-    weight = 40
+[languages.fr]
+  contentDir = 'content/fr'
+  languageCode = 'fr-FR'
+  languageName = 'Français'
+  weight = 1
+  title = 'DevLog'
+
+  [languages.fr.menus]
+    [[languages.fr.menus.main]]
+      name = 'Accueil'
+      identifier = 'home'
+      pageRef = '/'
+      weight = 10
+    [[languages.fr.menus.main]]
+      name = 'DevLog'
+      identifier = 'posts'
+      pageRef = '/posts'
+      weight = 20
+    [[languages.fr.menus.main]]
+      name = 'A propos'
+      identifier = 'about'
+      pageRef = '/a-propos'
+      weight = 30
+    [[languages.fr.menus.main]]
+      name = 'Mon CV'
+      identifier = 'resume'
+      pageRef = '/mon-cv'
+      weight = 40
+
+[languages.en]
+  contentDir = 'content/en'
+  languageCode = 'en-US'
+  languageName = 'English'
+  weight = 2
+  title = 'DevLog'
+
+  [languages.en.menus]
+    [[languages.en.menus.main]]
+      name = 'Home'
+      identifier = 'home'
+      pageRef = '/'
+      weight = 10
+    [[languages.en.menus.main]]
+      name = 'DevLog'
+      identifier = 'posts'
+      pageRef = '/posts'
+      weight = 20
+    [[languages.en.menus.main]]
+      name = 'About'
+      identifier = 'about'
+      pageRef = '/a-propos'
+      weight = 30
+    [[languages.en.menus.main]]
+      name = 'Resume'
+      identifier = 'resume'
+      pageRef = '/mon-cv'
+      weight = 40
 
 [module]
   [module.hugoVersion]

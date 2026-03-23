@@ -1,5 +1,6 @@
 ---
 title: "À Propos de Moi"
+date: 2026-03-23
 ---
 
 Bienvenue sur mon espace personnel ! Je suis Christophe Delacourt, un passionné de technologie et d'ingénierie logicielle. Ce blog est mon carnet de bord, un lieu où je partage mes réflexions, mes découvertes et mes explorations dans le vaste monde du développement.

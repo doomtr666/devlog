@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{ range .AllTranslations }}
+        <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+    {{ end }}
     <script data-goatcounter="https://doomtr666.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     {{ block "head" . }}
     {{ end }}

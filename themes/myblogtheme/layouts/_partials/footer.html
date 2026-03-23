@@ -1,6 +1,6 @@
 <div class="footer-credits">
     <div class="credit-item">
-        <span>Licence CC BY-SA 4.0</span>
+        <span>{{ i18n "license" | safeHTML }}</span>
         <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">
             <img alt="Licence Creative Commons" src="/images/logos/by-sa.svg" />
         </a>
@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="footer-no-tracking">
-    <p>Ce site utilise <a href="https://www.goatcounter.com" target="_blank">GoatCounter</a> pour des statistiques anonymes. Il ne collecte aucune donnée personnelle et n'utilise aucun cookie.</p>
+    <p>{{ i18n "goatcounter_info" | safeHTML }}</p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>

@@ -2,6 +2,7 @@
 title: "Christophe Delacourt | Architecte Principal"
 sitemap:
   disable: true
+date: 2026-03-23
 ---
 
 {{< contact_print >}}

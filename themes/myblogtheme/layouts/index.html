@@ -1,9 +1,9 @@
 {{ define "main" }}
 <ul class="post-list">
-    {{ range first 5 (where .Site.Pages "Section" "posts") }}
+    {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
     <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
         
     </li>
     {{ end }}

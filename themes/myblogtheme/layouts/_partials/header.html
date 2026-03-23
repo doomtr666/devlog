@@ -1,1 +1,19 @@
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<div class="header-container">
+    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+    
+    <nav class="language-switcher">
+        <ul>
+            {{ if .IsTranslated }}
+                {{ range .AllTranslations }}
+                    <li><a href="{{ .RelPermalink }}" class="lang-link">{{ .Language.LanguageName }}</a></li>
+                {{ end }}
+            {{ else }}
+                {{ range .Site.Languages }}
+                    {{ if ne . $.Site.Language }}
+                        <li><a href="{{ .Lang | relURL }}" class="lang-link">{{ .LanguageName }}</a></li>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </ul>
+    </nav>
+</div>
