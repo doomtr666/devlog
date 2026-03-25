@@ -18,7 +18,7 @@ I specifically remember a bug regarding planetary view movement: we just needed 
 
 But it was also top-tier audio and really cool music, massive work from our sound engineer with the **Bikini Machine**. In short, looking back over these past 8 years (it's aged a bit, inevitably), it remains the best developmental and human experience of my career.
 
-Meanwhile, I spent quite a bit of personal time on **i2** (Insanity Engine 2). It was my OpenGL/C++ sandbox, never published anything, just testing out ideas all over the place. And then came **Vulkan**. Open standard, powerful, performant... I was hooked immediately. That's where **i3** was born.
+Meanwhile, I spent quite a bit of personal time on **i2** (Insanity Engine 2). It was my OpenGL/C++ sandbox, never published anything, just testing out ideas all over the place. And then came **Vulkan**. Open standard, powerful, performant... I was hooked immediately. That's where **[i3](https://github.com/doomtr666/i3)** was born.
 
 ### The Journey (and the Detours)
 

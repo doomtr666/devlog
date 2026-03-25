@@ -6,80 +6,101 @@ categories: ["Dev Log", "i3"]
 draft: true
 ---
 
-In my previous article, we talked about the orchestra (the Frame Graph). But an orchestra without sheet music is just a bunch of people with shiny instruments staring at each other. In i3, this sheet music consists of our **assets** (meshes, scenes, skeletons, animations). And their preparation is anything but trivial.
+The idea of making a rendering engine is a bit of an **endless cycle**: for the first scene, you make a `draw_triangle` and already, with an API like Vulkan, that keeps you busy for a while. Then you tell yourself a cube is nice, you'll be able to test your matrices and UBOs.
 
-If you think a modern 3D engine loads an `.obj` or `.gltf` file directly at runtime, that's the absolute best way to tank your performance and skyrocket your loading times. These formats are meant for exchange between humans and modeling tools (Blender, Maya), not for being digested by a hungry GPU.
+But after a while, ambition catches up with you. You want to do **GPU Driven**, **Hi-Z Occlusion Culling**, **Ray Tracing**, **ReSTIR**... and then, cubes are nice but they quickly become limiting. "Oh yeah guys, I have a super demo with GPU Driven, GI, RT and everything! 🚀"... and then you show a Cornell Box. Naturally, you won't get the "Wow" effect. You need **real complex scenes**, and that's precisely why I started the **asset baking** system for **[i3](https://github.com/doomtr666/i3)** quite early.
 
-### The Zero-Copy Pact
+More seriously, it's also the only real way to test the **robustness** of the engine. Bam, a small degenerate normal, and it's a **NaN** that blows up your lighting shader. Every new asset brings its share of unforeseen problems. It's an iterative process that takes time: we refine the Baker as the scenes become hungrier.
 
-For i3, I made a pact with myself: **Zero-Copy**. The idea is absolutely brutal: once the asset is on the disk, it must be "mappable" directly into virtual memory via a system call like `mmap`, and its sub-sections must be injectible into Vulkan buffers without *any* resident transformation CPU-side. No on-the-fly JSON parsing, no memory realignment, no vector swizzling. Pure silicon, direct.
+### The Dynamic Duo: i3_baker vs i3_io
 
-Enter the **Baker** (`i3_baker`). Contrary to what you might think, it's not a standalone offline CLI tool. For now, it is invoked directly from the `build.rs` script. The idea is to tightly couple the process: building the binary triggers the incremental compilation of assets into `.i3b` *bundles* and `.i3c` catalogs.
+The architecture of i3 relies on a drastic separation of responsibilities via two distinct crates:
 
-### Importer vs Extractor: A Decoupled Architecture
+1.  **`i3_baker` (The Heavyweight)**: This is the build tool. It's the one that "takes all the heat". It depends on **Assimp** (for 3D), **Slang** (for shaders), **Image** (for textures), and **Rayon** (for parallelizing everything). For textures, it integrates the **Intel ISPC Texture Compressor** (`intel-tex-2`) for high-quality BCn compression (BC1 to BC7), with a dedicated **fast-path** if the asset is already in DDS format (via `ddsfile`). It's a multi-megabyte monster that only serves development.
+2.  **`i3_io` (The Formula 1)**: This is the runtime. It's ultra-lean. Its only dependencies? `memmap2` for binary mapping, `bytemuck` for casting, and especially **`rayon`** to parallelize asynchronous asset loading via its global thread pool. This is the only crate that ends up in your game binary.
 
-The baker's architecture relies on a strict separation between **parsing** and **conversion**, using two distinct layers: **Importers** and **Extractors**.
+The secret? `i3_io` defines the **Binary Contract** (the headers). The Baker must comply. At runtime, the engine doesn't even know Assimp exists; it only sees perfectly aligned bytes.
 
-On one side, the **Importer** reads the source format and produces an intermediate memory representation. For geometry, I use a native C++ integration of **Assimp** (via the `russimp` binding). Assimp parses a complex source file (`.glb`, `.fbx`) **exactly once**, generating a unified scene tree.
+### The Zero-Copy Dogma vs Silicon Reality
 
-On the other side, the **Extractors** consume this intermediate representation to generate the final binary blobs. 
-The critical architectural takeaway is that a single import triggers multiple extractions. For a full character:
-- The `MeshExtractor` will iterate over primitives (`aiMesh`) and generate `.i3mesh` geometry.
-- The `SceneExtractor` will traverse the scene graph (MeshRefs, accumulated transform matrices) and flatten it into `.i3scene` instancing.
-- The `SkeletonExtractor` will build the joint hierarchy (`i16` parent indices) and inverse bind matrices into `.i3skeleton`.
-- The `AnimationExtractor` will convert frames into a continuous value pool in `.i3animation`.
+We often talk about **Zero-Copy** as the Holy Grail: you `mmap` your file, you give the address to Vulkan and hop, the magic happens. But watch out for shortcuts: even with **Resizable BAR** enabled, we don't just "map" the SSD into VRAM and hope it shines. The physics of the PCIe bus impose its rules.
 
-### Under the Hood: .i3mesh and Memory Layout
+Exposing the GPU's *Device Local* memory in the CPU's address space (via the BAR) is giving a delivery address, not hiring a mover. If you let your CPU do a `memcpy` to this area, you'll saturate your cores for a ridiculous throughput. The CPU isn't made for pushing bytes on a high-latency bus like PCIe.
 
-Let's peek under the hood of a compiled asset, like a `.i3mesh`. To guarantee Zero-Copy, the file is organized using structs explicitly tagged with `repr(C)`.
+#### Staging: A failure? Not so fast.
+
+In **i3**, the "Zero-Copy Pact" relies on the only brute force capable of saturating the bus: the GPU's **Copy Engine (DMA)**. Currently, our pipeline looks like this:
+
+1.  **Neutral Ground (RAM)**: The OS uses the NVMe controller's DMA to fill system RAM pages from the SSD. This is the kernel's historical and ultra-optimized job via `mmap`.
+2.  **The "Burst" Transfer**: This is where the magic happens. During `vkCmdCopyBufferToImage`, we wake up the RTX's **Copy Engine**. It, and it alone, takes command of the PCIe bus. It "sucks up" data from RAM in massive bursts (32 GB/s on PCIe 4.0, 64 GB/s on 5.0) to inject it into VRAM.
+3.  **The "Small" Memcpy**: And that's where I lied. Yes, there's a `memcpy` between step 1 and 2. :( What a big liar! The most intuitive reader will immediately spot the contradiction: how can we talk about **Zero-Copy** while doing a `memcpy`?
 
 ```mermaid
-graph TD
-    H1["AssetHeader (64 bytes)"]
-    H2["MeshHeader (64 bytes)"]
-    V["Vertex Data (variable, GPU Ready)"]
-    I["Index Data (variable, GPU Ready)"]
-    A["AABB (24 bytes)"]
+graph LR
+    A[File .i3b] --> B[mmap: System RAM]
+    B --> C{memcpy}
+    C --> D[Vulkan Staging Buffer]
+    D --> E[vkCopyBuffer: GPU DMA]
+    E --> F[Resident VRAM]
 
-    H1 --> H2
-    H2 --> V
-    V --> I
-    I --> A
+    style C fill:#444,color:#fff,stroke:#fff
+    style D fill:#f96,color:#000,stroke:#333
+    style E fill:#f96,color:#000,stroke:#333,stroke-width:2px
+    style F fill:#2ecc71,color:#000,stroke:#333
 ```
 
-The `MeshHeader` struct stores exactly what the Vulkan API needs to know:
-- `vertex_count` and `index_count`.
-- `vertex_stride` and `vertex_format` (an enum pointing to the exact memory layout. For example, the `PositionNormalUvSkinned` format weighs exactly 52 bytes per vertex).
-- Absolute offsets (`u32`) from the start of the blob to the vertex and index data (`vertex_offset`, `index_offset`).
+#### The DirectStorage Mirage
 
-For skinning, alignment is razor-sharp:
-- `joints`: `[u8; 4]` (allowing 256 bones per skeleton, keeping weight minimal while covering the vast majority of use cases).
-- `weights`: `[f32; 4]` (stored explicitly, even the 4th weight, to avoid recalculating it via `w4 = 1.0 - w1 - w2 - w3` in the vertex shader).
+Microsoft's **DirectStorage** is often cited as the miracle solution. It's a "magical" proprietary tech that promises to solve all our streaming problems. But for i3, it's a total non-starter.
 
-At runtime (via the `i3_io` engine crate), the VFS component performs its `mmap`, casts a view of the memory into the `MeshHeader` structure, and uses the pre-calculated pointers via offsetting to immediately populate the `VkBuffer` creation struct. It's direct injection.
+First, it's a tech tailored for Microsoft consoles and their closed architecture. For a Vulkan-based engine, integrating DirectStorage on Windows requires a high level of architectural masochism (DX12/Vulkan interop, cross-queue management...). More importantly, it solves absolutely nothing for the **Linux** world.
 
-### The Global State Concept: .i3pipeline
+Not to mention the **HRI** (Hardware Rendering Interface): trying to achieve a clean decoupling between optimized loading and the rendering backend with such an API is a recipe for a permanent migraine. We're also avoiding the complexity of **GDeflate** for now: while I'm curious about testing NVIDIA's open-source library for geometry compression (better entropy!), the actual real-world gain remains unproven. By sticking with native **BC7** for textures, we already have formats that the GPU texture units can devour immediately.
 
-This Zero-Copy philosophy isn't limited to geometry. The mindset extends to a major concept: the `.i3pipeline` asset.
+#### VK_EXT_external_memory_host: The Sane Choice
 
-Historically (and this is a nightmare in Vulkan/DX12), binding shaders and fixed rasterization state (Blend, DepthStencil, InputAssembly) together at runtime takes ages. In the Baker pipeline, the goal isn't to compile a simple SPIR-V shader in isolation. 
+So, what do we do? This is where [**`VK_EXT_external_memory_host`**](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_external_memory_host.html) comes in. It's the ultimate "sweet spot."
 
-Instead, the Baker takes a high-level shading file (via the `SlangImporter`) and outputs a full asset containing:
-- The concatenated SPIR-V bytecodes of all entry points.
-- A serialized block representing the entirety of the `VkGraphicsPipelineCreateInfo` (RasterizationState, render targets, blending modes).
-Result: at runtime, the renderer simply pops the blob and constructs its Pipeline Object in one go.
+Technically, it's just a classic extension support test and a small `if`. We tell Vulkan that the memory area mapped by the CPU (our `.i3b` file) is a legitimate source `VkBuffer`. We squeeze step 3 (the `memcpy`). While these two DMA controllers (Disk and GPU) talk to each other at the peak of bandwidth, the CPU is totally free. It hasn't touched a single byte; it just signed the purchase order. It's clean, it's cross-platform (Windows/Linux), and it respects the elegance of i3's architecture.
 
-### Rayon and CPU Saturation
+```mermaid
+graph LR
+    A[File .i3b] --> B[mmap: System RAM]
+    B --> D[Vulkan: Direct Import]
+    D --> E[vkCopyBuffer: GPU DMA]
+    E --> F[Resident VRAM]
 
-The other massive impact of this highly decoupled architecture is parallelization. Baker is an aggressive tool. During a "bake", it scans the source asset directory and meticulously cross-references modification dates (`mtime`) with entries in the `.i3c` catalog.
+    style D fill:#f96,color:#000,stroke:#333,stroke-width:2px
+    style E fill:#f96,color:#000,stroke:#333,stroke-width:2px
+    style F fill:#2ecc71,color:#000,stroke:#333
+```
 
-It identifies the delta of files that need rebaking and pushes them all into a thread pool managed by **Rayon**. Since each source asset is entirely independent of the others, the Baker instantly saturates all physical CPU cores:
-1. Each thread loads a source file in parallel.
-2. The Importer parses data into the intermediate memory structure.
-3. The Extractors generate the blobs (often capable of executing in parallel themselves).
-4. A thread-safe `BundleWriter`, fortified against race conditions, concatenates the final blocks into the heavy `.i3b` bundle file.
+Code cleanliness wins by K.O.: we keep a simple, decoupled pipeline, and let the silicon do what it does best.
 
-Even with hundreds of complex assets, an incremental "rebake" only takes a few dozen milliseconds. No more mandatory 20-minute coffee breaks while the level compiles.
+### Anatomy of a Bundle: The Fridge and its Index
+
+To avoid opening 4000 files, i3 groups everything into two files:
+
+1.  **The Bundle (`.i3b`)**: The giant fridge. A series of binary blobs aligned to **64 KB**.
+2.  **The Catalog (`.i3c`)**: The post-it on the door. It tells us where the resource is stored (the offset) and its size.
+
+Each asset in the bundle starts with a fixed 64-byte **AssetHeader** (defined in `i3_io`):
+
+```rust
+#[repr(C)]
+pub struct AssetHeader {
+    pub magic: u64,             // 0..8   0x4933415353455400 ("I3ASSET\0")
+    pub version: u32,           // 8..12  Version: 1
+    pub compression: u32,       // 12..16 0: None, 1: Zstd...
+    pub data_offset: u64,       // 16..24 Absolute offset in the .i3b
+    pub data_size: u64,         // 24..32 Compressed size
+    pub uncompressed_size: u64, // 32..40
+    pub asset_type: [u8; 16],   // 40..56 Type UUID (Mesh, Texture...)
+    pub _reserved: [u8; 8],     // 56..64 Padding for alignment
+}
+```
+
+The catalog is a simple list of **CatalogEntry** (128 bytes). At runtime, `i3_io` does its `mmap`, casts the memory into an array of structs, and puff: O(1) access to any asset by its UUID.
 
 ### Conclusion
 

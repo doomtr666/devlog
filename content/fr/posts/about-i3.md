@@ -18,7 +18,7 @@ Je me souviens notamment d'un bug sur le déplacement en vue planétaire : il fa
 
 Mais c'était aussi le son au top et la musique vraiment cool, gros boulot de notre ingé son avec les **Bikini Machine**. Bref, avec le recul de ces 8 dernières années (ça a un peu vieilli, forcément), ça reste la meilleure expérience de dev et humaine de ma carrière.
 
-Entre-temps, j'ai usé pas mal de temps perso sur **i2** (Insanity Engine 2). C'était mon bac à sable en OpenGL/C++, jamais rien publié, juste des tests dans tous les sens. Et puis est arrivé **Vulkan**. Open standard, puissant, performant... J'ai été séduit immédiatement. C'est là qu'est né **i3**.
+Entre-temps, j'ai usé pas mal de temps perso sur **i2** (Insanity Engine 2). C'était mon bac à sable en OpenGL/C++, jamais rien publié, juste des tests dans tous les sens. Et puis est arrivé **Vulkan**. Open standard, puissant, performant... J'ai été séduit immédiatement. C'est là qu'est né **[i3](https://github.com/doomtr666/i3)**.
 
 ### Le voyage (et les sorties de route)
 
