@@ -1,5 +1,5 @@
 ---
-title: "i3: Wanderings at the Edge of the Frame Graph"
+title: "About i3"
 date: 2026-03-20
 tags: ["3D Engine", "Vulkan", "Frame Graph", "Architecture"]
 categories: ["Dev Log", "i3"]

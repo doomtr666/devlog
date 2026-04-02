@@ -1,5 +1,5 @@
 ---
-title: "i3 : Pérégrinations aux frontières du Frame Graph"
+title: "A propos d'i3"
 date: 2026-03-20
 tags: ["Moteur 3D", "Vulkan", "Frame Graph", "Architecture"]
 categories: ["Journal de Dev", "i3"]
