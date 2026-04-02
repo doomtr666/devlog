@@ -6,7 +6,7 @@ categories: ["Dev Log", "i3"]
 draft: false
 ---
 
-In my [previous article](../about-i3/), I talked about the famous "renunciation": moving to a **Frame Graph**. It's a big word, somewhat trendy in the 3D engine world, but behind the buzzword lies a brutal reality. When you switch to explicit APIs like Vulkan, you're stuck with manual management of synchronization barriers. And that's when the trouble really starts.
+In my [previous article](../about-i3/), I talked about the famous "renunciation": moving to a **Frame Graph** for my **[i3](https://github.com/doomtr666/i3)** engine. It's a big word, somewhat trendy in the 3D engine world, but behind the buzzword lies a brutal reality. When you switch to explicit APIs like Vulkan, you're stuck with manual management of synchronization barriers. And that's when the trouble really starts.
 
 The problem is that modern GPUs are massively parallel machines. By default, they try to execute as many operations as possible simultaneously. Except that in a rendering algorithm, not everything can be parallelized: *Lighting* needs the *GBuffer*, *Post-processing* needs the lit scene, and so on.
 
