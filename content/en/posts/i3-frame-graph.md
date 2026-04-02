@@ -6,7 +6,7 @@ categories: ["Dev Log", "i3"]
 draft: false
 ---
 
-In my [previous article](/en/posts/about-i3/), I talked about the famous "renunciation": moving to a **Frame Graph**. It's a big word, somewhat trendy in the 3D engine world, but behind the buzzword lies a brutal reality. When you switch to explicit APIs like Vulkan, you're stuck with manual management of synchronization barriers. And that's when the trouble really starts.
+In my [previous article](../about-i3/), I talked about the famous "renunciation": moving to a **Frame Graph**. It's a big word, somewhat trendy in the 3D engine world, but behind the buzzword lies a brutal reality. When you switch to explicit APIs like Vulkan, you're stuck with manual management of synchronization barriers. And that's when the trouble really starts.
 
 The problem is that modern GPUs are massively parallel machines. By default, they try to execute as many operations as possible simultaneously. Except that in a rendering algorithm, not everything can be parallelized: *Lighting* needs the *GBuffer*, *Post-processing* needs the lit scene, and so on.
 
@@ -87,7 +87,7 @@ These three properties — complexity, verbosity, fragility — would make any r
 
 Any modification becomes a risk. Coupling doesn't follow the linear order of the code but the **data flow** of the graph: changing one pass modifies a resource's state, which impacts every consumer pass by ripple effect, sometimes much later in the frame.
 
-Some approaches I tested (like [V-EZ](/en/posts/about-i3/)) try to solve this by hiding everything under the rug. The problem is that it ends up being like coding a crappy **OpenGL pseudo-driver**. You lose control over fine-grained hardware optimizations, which is precisely why we chose Vulkan in the first place. This realization pushed me to pivot toward a Frame Graph architecture.
+Some approaches I tested (like [V-EZ](../about-i3/)) try to solve this by hiding everything under the rug. The problem is that it ends up being like coding a crappy **OpenGL pseudo-driver**. You lose control over fine-grained hardware optimizations, which is precisely why we chose Vulkan in the first place. This realization pushed me to pivot toward a Frame Graph architecture.
 
 Inspired by [DICE's work on Frostbite](https://www.ea.com/frostbite/news/framegraph-extensible-rendering-architecture-in-frostbite), the i3 Frame Graph treats rendering as a compilation problem.
 

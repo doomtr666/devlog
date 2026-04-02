@@ -6,7 +6,7 @@ categories: ["Journal de Dev", "i3"]
 draft: false
 ---
 
-Dans mon [article précédent](/fr/posts/about-i3/), je vous parlais du fameux "renoncement" : le passage au **Frame Graph**. C'est un grand mot, un peu à la mode dans le milieu du moteur 3D, mais derrière le buzzword se cache une réalité brutale. Quand tu passes sur des API explicites comme Vulkan, tu te retrouves avec la gestion manuelle des barrières de synchronisation. Et là, c'est le début des emmerdes.
+Dans mon [article précédent](../about-i3/), je vous parlais du fameux "renoncement" : le passage au **Frame Graph**. C'est un grand mot, un peu à la mode dans le milieu du moteur 3D, mais derrière le buzzword se cache une réalité brutale. Quand tu passes sur des API explicites comme Vulkan, tu te retrouves avec la gestion manuelle des barrières de synchronisation. Et là, c'est le début des emmerdes.
 
 Le problème, c'est que nos GPU modernes sont des machines massivement parallèles. Par défaut, ils tentent d'exécuter un maximum d'opérations simultanément. Sauf que dans un algorithme de rendu, tout n'est pas parallélisable : le *Lighting* a besoin du *GBuffer*, le *Post-process* a besoin de la scène éclairée, et ainsi de suite.
 
@@ -81,13 +81,13 @@ Ici, je définis le passage d'une écriture (Color Attachment) à une lecture sh
  
 Le lecteur averti remarquera qu'il ne s'agit ici que d'une **« demi-barrière »** de Release : elle doit impérativement avoir son pendant (**Acquire**) sur la queue de destination pour être valide. Cet exemple fait également l'impasse sur la synchronisation par **Sémaphore**, indispensable pour que la queue cible n'essaie pas d'acquérir la ressource avant que la source ne l'ait relâchée. Enfin, la présence du **subresourceRange** rappelle que ces transitions peuvent s'opérer finement au niveau du mip-level ou de l'array-layer, ce qui démultiplie encore la complexité de gestion.
  
-Cette accumulation de contraintes — Release/Acquire, Layout Transitions, Sémaphores — expose la réalité brute de Vulkan : c'est un pur **nid à emmerdes**. C'est verbeux, c'est fragile au moindre refactoring, et c'est statistiquement garanti que vous allez oublier une barrière quelque part.
+Cette accumulation de contraintes — Release/Acquire, Layout Transitions, Sémaphores — expose la réalité brute de Vulkan : c'est un pur **nid à emmerdes**. C'est verbeux, c'est fragile au moindre refactoring, et c'est statistiquement garanti que vous avez oublié une barrière quelque part.
 
 Ces trois propriétés — complexité, verbosité, fragilité — rendraient n'importe quel moteur de rendu qui expliciterait manuellement ses barrières extrêmement **RIGIDE**.
 
 La moindre modification devient un risque. Le couplage ne suit pas l'ordre linéaire du code mais le **flux de données** du graphe : changer une passe modifie l'état d'une ressource, ce qui impacte par ricochet toutes ses passes consommatrices, parfois bien plus loin dans la frame.
 
-Certaines approches que j'ai testées (comme [V-EZ](/fr/posts/about-i3/)) tentent de résoudre ça en masquant tout sous le tapis. Le problème, c'est que ça revient à coder un **pseudo-driver OpenGL** moisi. On perd le contrôle sur les optimisations fines du matériel, ce qui est précisément la raison pour laquelle on a choisi Vulkan au départ. C'est ce constat d'échec qui m'a poussé à pivoter vers une architecture de Frame Graph.
+Certaines approches que j'ai testées (comme [V-EZ](../about-i3/)) tentent de résoudre ça en masquant tout sous le tapis. Le problème, c'est que ça revient à coder un **pseudo-driver OpenGL** moisi. On perd le contrôle sur les optimisations fines du matériel, ce qui est précisément la raison pour laquelle on a choisi Vulkan au départ. C'est ce constat d'échec qui m'a poussé à pivoter vers une architecture de Frame Graph.
 
 Inspiré par les travaux de [DICE sur Frostbite](https://www.ea.com/frostbite/news/framegraph-extensible-rendering-architecture-in-frostbite), le Frame Graph d'i3 traite le rendu comme un problème de compilation.
 
