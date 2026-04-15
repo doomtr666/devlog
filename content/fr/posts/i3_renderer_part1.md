@@ -13,7 +13,7 @@ Aujourd'hui, on va s'attaquer à un grand classique du rendu moderne : l'**Image
 
 ### Ambition vs Stratégie : Le rendu incrémental
 
-Je vais être honnête : j'ai une certaine ambition sur le rendu final d'i3. J'ai envie de trucs qui claquent, de reflets cohérents et d'une gestion de la lumière proprement physique. Mais on ne pond pas un moteur de rendu AAA en un après-midi tout seul dans son garage. 
+Je vais être honnête : j'ai une certaine ambition sur le rendu final d'i3. J'ai envie de trucs qui claquent, de reflets cohérents et d'une gestion de la lumière proprement physique. Mais on ne pond pas un moteur de rendu en un après-midi tout seul dans son garage. 
 
 Ma stratégie est donc la suivante : implémenter une collection de techniques **composables**. Actuellement, la base du moteur est un **Clustered Deferred** classique (G-Buffers, Deferred Resolve, Tonemap). La seule véritable fioriture jusqu'à présent, ce sont les **Normal Maps**, mais sans éclairage global ni réflexions, le rendu faisait encore très "début des années 2000".
 
