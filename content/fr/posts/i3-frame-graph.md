@@ -7,6 +7,7 @@ draft: false
 ---
 
 Dans mon [article précédent](../about-i3/), je vous parlais du fameux "renoncement" : le passage au **Frame Graph** pour mon moteur **[i3](https://github.com/doomtr666/i3)**. C'est un grand mot, un peu à la mode dans le milieu du moteur 3D, mais derrière le buzzword se cache une réalité brutale. Quand tu passes sur des API explicites comme Vulkan, tu te retrouves avec la gestion manuelle des barrières de synchronisation. Et là, c'est le début des emmerdes.
+<!--more-->
 
 Le problème, c'est que nos GPU modernes sont des machines massivement parallèles. Par défaut, ils tentent d'exécuter un maximum d'opérations simultanément. Sauf que dans un algorithme de rendu, tout n'est pas parallélisable : le *Lighting* a besoin du *GBuffer*, le *Post-process* a besoin de la scène éclairée, et ainsi de suite.
 

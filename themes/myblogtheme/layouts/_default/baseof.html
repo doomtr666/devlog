@@ -31,6 +31,21 @@
     <footer>
         {{ partial "footer.html" . }}
     </footer>
+    <script src="/js/fslightbox.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('main img');
+            images.forEach(img => {
+                if (img.closest('a')) return;
+                const link = document.createElement('a');
+                link.href = img.src;
+                link.setAttribute('data-fslightbox', 'gallery');
+                img.parentNode.insertBefore(link, img);
+                link.appendChild(img);
+            });
+            refreshFsLightbox();
+        });
+    </script>
 </body>
 
 </html>

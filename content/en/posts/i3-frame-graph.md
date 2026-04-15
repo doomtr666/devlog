@@ -7,7 +7,7 @@ draft: false
 ---
 
 In my [previous article](../about-i3/), I talked about the famous "renunciation": moving to a **Frame Graph** for my **[i3](https://github.com/doomtr666/i3)** engine. It's a big word, somewhat trendy in the 3D engine world, but behind the buzzword lies a brutal reality. When you switch to explicit APIs like Vulkan, you're stuck with manual management of synchronization barriers. And that's when the trouble really starts.
-
+<!--more-->
 The problem is that modern GPUs are massively parallel machines. By default, they try to execute as many operations as possible simultaneously. Except that in a rendering algorithm, not everything can be parallelized: *Lighting* needs the *GBuffer*, *Post-processing* needs the lit scene, and so on.
 
 Managing synchronization manually with barriers is the complex art of restricting this parallelism to ensure data consistency. Multiply that by a hundred rendering passes and thousands of resources, and you have a perfect recipe for impossible-to-debug synchronization bugs (visual glitches, graphical artifacts, etc.) or massive performance losses if your barriers are too conservative.

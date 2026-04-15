@@ -388,8 +388,8 @@ ul {
     /* Hauteur uniforme pour les logos */
 }
 
-/* Styling for social icons in content */
-.container a img {
+/* Styling for social icons in content - exclude lightbox images */
+.container a:not([data-fslightbox]) img {
     width: 20px;
     height: 20px;
     vertical-align: middle;
