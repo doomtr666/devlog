@@ -6,24 +6,32 @@ date: 2026-03-23
 draft: false
 ---
 
-{{< contact_print >}}
-
 {{< print_button >}}
 
+
+{{< contact >}}
+
 I am an architect who has never stopped developing. This is the core of my approach: defining a strategic vision and establishing its credibility by prototyping the most complex components myself. My motivation lies in guiding talented teams toward ambitious, production-ready solutions by providing them with the confidence and autonomy to innovate.
+
+
 
 # Professional Experience
 
 ## Principal Architect
 **Obvios** | *January 2022 - Present*
 
-* **Leadership & Strategic Interface:** Leading the architecture department (4 experts). As the guardian of the cross-functional technical vision, I define the strategic direction for the **development teams (~30 people)** and serve as the lead technical point of contact for clients and partners on innovation projects (ANR, PIIEC).
+* **Technical Direction & Strategic Interface:** Leading the architecture department (4 experts) and guardian of the cross-functional technical roadmap for the R&D department (**~30 developers**). Direct technical point of contact for institutional partners on strategic innovation projects (ANR, PIIEC).
+
+* **Cloud-Native Industrialization (5G Core):** Transitioning a research prototype into a sovereign industrial solution. Designed a high-performance, resilient **cloud-native** architecture (Kubernetes) with a focus on core security requirements (DevSecOps, secure coding).
+
+* **Cyber Innovation & Prototyping:** Validating complex architectures through the development of proofs of concept (PoC) on critical components (eBPF, network filtering, encryption). This hands-on approach secures technical decisions and addresses cybersecurity challenges from the design phase.
+
 
 * **Technical Strategy & Quality:** Driving cross-functional initiatives to improve processes and code quality: contributing to testing strategies and component update policies, implementing secure coding practices, leading workshops on development best practices, and managing various technical initiatives such as solution-level feature flagging and technical debt management.
 
-* **Latest Architecture Design (NDR System):** End-to-end design of a cloud-native Network Detection and Response (NDR) system: direct metrics/logs ingestion, asynchronous correlation engine (`Go`/`Lua`), and Kubernetes `CRD` integration. To validate the approach, I developed the V0.1 of its most critical component (*SigStreak*), a `C++`/`LLVM` compiler generating filtering rules at 10 Gb/s injected directly into the kernel via `eBPF`/`XDP`. This prototype, validated and presented to prospects, enabled the team to move forward with the pre-production of the entire system.
 
-* **Strategic Cross-functional Design:** Leading the drafting of architectures and specifications for complex, structural topics (High Availability systems, stateless architecture on Kubernetes, DevSecOps pipeline overhaul).
+
+
 
 ## Tech Lead 
 **b<>com** | *December 2017 - January 2022*
@@ -97,17 +105,11 @@ Administration and maintenance of military communication systems (tactical radio
 * [Considering Sync Word and Header Error Rates for...](https://www.researchgate.net/publication/349949777_Considering_Sync_Word_and_Header_Error_Rates_for_Performance_Assessment_in_LoRa_System) - April 2021
 * [Quantization Methods Based on Norms for Complex...](https://www.researchgate.net/publication/363576337_Quantization_Methods_Based_on_Norms_for_Complex_Gaussian-Like_Signals_in_SDR_Applications) - August 2022
 
-# Education & Continuous Learning
+# Education
 
-*Self-taught by nature, I have forged my expertise through intensive practice, technical experimentation, and the end-to-end design of distributed systems.*
-
-* **2024**: English Language Improvement – Yes 'n You
-* **2020**: MOOC in Signal Processing – EPFL via Coursera
-* **2010**: Agile Project Management Certification (SCRUM) – Aubry Conseil
-* **2004–2007**: DEST modules in Information Systems Architecture – CNAM
-* **2003**: Associate Degree (DUT) in Computer Science – IUT de Vannes
+Self-taught expertise forged through intensive practice, complemented by a degree in Computer Science and Information Systems Architecture modules at CNAM.
 
 # Languages & Interests
 
 * **Languages**: French (Native), English (Professional).
-* **Interests**: Game Development (Rust, Vulkan, Engine Architecture), Video Games, Tabletop RPGs, Wargaming, Cooking, Reading.
+* **Interests**: [Game Development](https://doomtr666.github.io/devlog/), Video Games, Tabletop RPGs, Wargaming, Cooking, Reading.

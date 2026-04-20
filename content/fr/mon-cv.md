@@ -5,9 +5,9 @@ sitemap:
 date: 2026-03-23
 ---
 
-{{< contact_print >}}
-
 {{< print_button >}}
+
+{{< contact >}}
 
 Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mon approche : définir une vision stratégique et la rendre crédible en prototypant moi-même ses aspects les plus complexes. Ce qui me motive, c'est de guider une équipe talentueuse vers des solutions ambitieuses, conçues pour être livrées, en leur donnant la confiance et l'autonomie pour innover.
 
@@ -16,13 +16,14 @@ Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mo
 ## Architecte Principal
 **Obvios** | *Janvier 2022 - Aujourd'hui*
 
-* **Leadership & Interface Stratégique :** Pilotage du pôle architecture (4 experts). En tant que garant de la vision technique transverse, je définis les grandes orientations pour les **équipes de développement (~30 personnes)** et suis l'interlocuteur technique référent pour les clients et partenaires sur les projets d'innovation (ANR, PIIEC).
+* **Direction Technique & Interface Stratégique :** Pilotage du pôle architecture (4 experts) et garant de la vision technologique transverse pour le département R&D (**~30 développeurs**). Interlocuteur technique référent auprès des partenaires stratégiques sur les projets d'innovation (ANR, PIIEC).
+
+* **Industrialisation Cloud Native (Cœur 5G) :** Transformation d'un prototype de recherche en une solution industrielle souveraine. Conception de l'architecture **cloud-native** (Kubernetes), hautement disponible et sécurisée (DevSecOps, secure coding), garantissant les performances critiques du cœur de réseau.
+
+* **Innovation & Prototypage Cyber :** Validation des architectures complexes par le développement de preuves de concept (PoC) sur des briques critiques (eBPF, filtrage réseau, chiffrement). Cette approche pragmatique permet de sécuriser les choix technologiques et d'anticiper les enjeux cyber dès la phase de conception.
 
 * **Stratégie Technique & Qualité :** Animation d'initiatives transverses pour améliorer les processus et la qualité du code : participation à l'élaboration des stratégies de test et de mise à jour des composants, mise en place du secure coding, animation d'ateliers sur les bonnes pratiques de développement, et pilotage de chantiers tels que le feature flipping et la réduction de la dette technique.
 
-* **Dernier Design d'Architecture (Système NDR) :** Conception de bout en bout d'un système de détection réseau (NDR) cloud-native : ingestion directe metrics/logs, moteur de corrélation asynchrone (`Go`/`Lua`), intégration Kubernetes `CRD`. Pour valider l'approche, j'ai développé la V0.1 de sa brique la plus critique (*SigStreak*), un compilateur `C++`/`LLVM` générant des règles de filtrage à 10 Gb/s directement injectées dans le noyau (`eBPF`/`XDP`). Ce prototype, validé et présenté aux prospects, m'a permis d'embarquer l'équipe sur la pré-production de l'ensemble du système.
-
-* **Conception Stratégique Transverse :** Pilotage de la rédaction des architectures et spécifications sur des sujets complexes et structurants pour l'entreprise (Système Haute Disponibilité, architecture `stateless` sur Kubernetes, refonte de la chaîne DevSecOps).
 ## Tech Lead 
 **b<>com** | *Décembre 2017 - Janvier 2022*
 
@@ -82,11 +83,10 @@ Administration et maintenance de systèmes de communication militaires (radios t
 **Leadership & Stratégie**
 
 * Direction technique (CTO), pilotage de roadmap
-* Animation d'ateliers techniques (Archi. Agile, TDD, Clean Code)
 * Communication, diplomatie et résolution de conflits
 * Management d'équipes pluridisciplinaires, mentorat
+* Animation d'ateliers techniques (Archi. Agile, TDD, Clean Code, SCRUM)
 * Entrepreneuriat, levée de fonds, stratégie technique
-* Méthodologies Agiles (SCRUM)
 
 # Publications
 
@@ -95,17 +95,11 @@ Administration et maintenance de systèmes de communication militaires (radios t
 * [Considering Sync Word and Header Error Rates for...](https://www.researchgate.net/publication/349949777_Considering_Sync_Word_and_Header_Error_Rates_for_Performance_Assessment_in_LoRa_System) - Avril 2021
 * [Quantization Methods Based on Norms for Complex...](https://www.researchgate.net/publication/363576337_Quantization_Methods_Based_on_Norms_for_Complex_Gaussian-Like_Signals_in_SDR_Applications) - Août 2022
 
-# Formation & Apprentissage Continu
+# Formation
 
-*Autodidacte par nature, j'ai forgé mon expertise par la pratique intensive, l'expérimentation technique et la conception de systèmes distribués de bout en bout.*
-
-* **2024** : Perfectionnement en anglais – Yes 'n You
-* **2020** : MOOC en traitement du signal – EPFL via Coursera
-* **2010** : Certification en gestion de projet Agile (SCRUM) – Aubry Conseil
-* **2004–2007** : Modules du DEST en architecture des SI – CNAM
-* **2003** : DUT en Informatique – IUT de Vannes
+Expertise forgée en autodidacte par la pratique intensive, complétée par un DUT Informatique et des modules DEST en architecture des SI au CNAM.
 
 # Langues & Loisirs
 
 * **Langues** : Français (natif), Anglais (professionnel).
-* **Loisirs** : Développement de jeux vidéo (Rust, Vulkan, Architecture moteur), Jeux vidéo, Jeux de rôle, Wargaming, Cuisine, Lecture.
+* **Loisirs** : [Développement de jeux vidéo](https://doomtr666.github.io/devlog/), Jeux vidéo, Jeux de rôle, Wargaming, Cuisine, Lecture.

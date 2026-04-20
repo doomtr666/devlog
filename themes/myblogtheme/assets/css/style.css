@@ -352,19 +352,53 @@ ul {
         height: 16px;
         vertical-align: middle;
     }
-}
 
-/* Hide print-only content by default */
-.print-only-contact {
-    display: none;
-}
-
-/* Show print-only content in print media */
-@media print {
-    .print-only-contact {
-        display: block;
+    .page-break {
+        page-break-after: always;
+        break-after: page;
+        height: 0;
+        margin: 0;
+        padding: 0;
     }
 }
+
+/* Shared styles for contact information */
+.contact-line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-links img {
+    width: 20px;
+    height: 20px;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover img {
+    opacity: 0.7;
+}
+
+/* Specific styles for print */
+@media print {
+    .contact-line {
+        display: flex !important;
+        justify-content: flex-start !important;
+        margin-bottom: 30px;
+    }
+}
+
+
 
 /* Footer Credits */
 .footer-credits {
@@ -427,3 +461,55 @@ ul {
 .btn-print svg {
     fill: currentColor;
 }
+
+/* Columns Layout */
+.columns {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 1em;
+}
+
+.column {
+    flex: 1;
+}
+
+/* CV Header Ratio: 1/3 - 2/3 */
+.columns.cv-header .column:first-child {
+    flex: 1;
+}
+
+.columns.cv-header .column:nth-child(2) {
+    flex: 2.2;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.social-icons a img {
+    width: 22px;
+    height: 22px;
+    transition: opacity 0.2s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media print {
+    .columns.cv-header {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 40px;
+    }
+}
