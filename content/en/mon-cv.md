@@ -5,42 +5,31 @@ sitemap:
 date: 2026-03-23
 draft: false
 ---
-
 {{< print_button >}}
-
-
 {{< contact >}}
-
 I am an architect who has never stopped developing. This is the core of my approach: defining a strategic vision and establishing its credibility by prototyping the most complex components myself. My motivation lies in guiding talented teams toward ambitious, production-ready solutions by providing them with the confidence and autonomy to innovate.
 
-
-
 # Professional Experience
-
+{{< columns >}}
+{{< column >}}
 ## Principal Architect
 **Obvios** | *January 2022 - Present*
 
-* **Technical Direction & Strategic Interface:** Leading the architecture department (4 experts) and guardian of the cross-functional technical roadmap for the R&D department (**~30 developers**). Direct technical point of contact for institutional partners on strategic innovation projects (ANR, PIIEC).
+* **Leadership & Strategic Interface:** Leading the architecture department (4 experts) and guardian of the technical vision for **~30 developers**. Technical lead for strategic partners (ANR, PIIEC).
 
-* **Cloud-Native Industrialization (5G Core):** Transitioning a research prototype into a sovereign industrial solution. Designed a high-performance, resilient **cloud-native** architecture (Kubernetes) with a focus on core security requirements (DevSecOps, secure coding).
+* **Cloud-Native Industrialization (5G):** Transitioning a prototype into a sovereign industrial solution. High-availability **cloud-native** architecture (Kubernetes), natively integrating cyber requirements (DevSecOps, secure coding).
 
-* **Cyber Innovation & Prototyping:** Validating complex architectures through the development of proofs of concept (PoC) on critical components (eBPF, network filtering, encryption). This hands-on approach secures technical decisions and addresses cybersecurity challenges from the design phase.
-
-
-* **Technical Strategy & Quality:** Driving cross-functional initiatives to improve processes and code quality: contributing to testing strategies and component update policies, implementing secure coding practices, leading workshops on development best practices, and managing various technical initiatives such as solution-level feature flagging and technical debt management.
-
-
-
-
+* **Innovation & Prototyping:** Validating technical directions through the development of critical PoCs (eBPF, filtering, encryption) and managing software quality (Agile, technical debt reduction).
 
 ## Tech Lead 
 **b<>com** | *December 2017 - January 2022*
 
-* **4G/IoT RAN Scheduler:** Designed a 4G scheduler optimized for IoT (`NB-IoT`). Produced a prototype in collaboration with a 4G expert and developed an advanced test simulator for validation.
+* **IoT Expertise (4G/LoRa):** Designed 4G schedulers (`NB-IoT`) and cloud-native LoRa gateways. Created **real-time radio simulators** for industrial validation and optimization of research prototypes.
 
-* **Cloud-Native LoRa IoT Gateway:** Optimized a research prototype (migrating from `Python` to `C/C++`). Validated the solution by **designing and developing a real-time radio simulator** capable of generating LoRa signals with controlled impairments. Designed a microservices architecture on `Kubernetes` and contributed to a new synchronization algorithm (see [publications](#publications)).
+* **5G RAN Foundations:** Developed high-performance multithreaded libraries and deployed technical excellence practices (CI/CD, TDD, Clean Code).
 
-* **5G RAN Foundations:** Established CI/CD, TDD, and Clean Code practices, and developed a high-performance multithreaded communication library at the core of the 5G RAN.
+{{< /column>}}
+{{< column >}}
 
 ## Co-founder & CTO
 **Insane Unity** | *December 2013 - July 2017*
@@ -54,19 +43,20 @@ I am an architect who has never stopped developing. This is the core of my appro
 ## R&D Engineer & Project Manager 
 **Caps Entreprise** | *October 2007 - December 2013*
 
-* **Project Management:** Led customer service and optimization missions (OpenMP, MPI) with project teams of **up to 11 people**.
-
-* **Design & Development:** Designed the Intermediate Representation (IR) for an HPC compiler and developed a low-level backend for ATI Radeon GPUs.
+* **HPC & Management:** Design and development on the HPC compiler (IR, optimization passes, low-level code generation) and project management (up to 11 people) on optimization missions (`OpenMP`, `MPI`).
 
 ## Embedded Software Developer
 **Yaccom** | *January 2005 - October 2007*
 
 Integrated a `Bluetooth` stack and a Rich Media engine onto `NXP` mobile telephony platforms.
 
-## Corporal, Signal Corps
-**French Army** | *September 1998 - January 2005*
+{{< /column >}}
+{{< /columns >}}
 
-Administration and maintenance of military communication systems (tactical radios, satellites). This experience served as a springboard for my transition into IT.
+{{< page_break >}}
+
+{{< columns >}}
+{{< column >}}
 
 # Key Skills
 
@@ -79,13 +69,13 @@ Administration and maintenance of military communication systems (tactical radio
 
 **Engineering & High Performance**
 
-* **Tech Stack & Mastery:** `C/C++` (real-time, optimization), `Rust`, `Go`, `Python`, `C#`
-* **Systems & Low-Level:** Compilers (`LLVM`), 3D Rendering & GPGPU (`Vulkan`, `OpenGL`, `HLSL/GLSL`, `CUDA`/`OpenCL`)
-* **HPC & Performance Optimization:** `OpenMP`, `MPI`
+* Tech Stack & Mastery: `C/C++` (real-time, optimization), `Rust`, `Go`, `Python`, `C#`
+* Systems & Low-Level: Compilers (`LLVM`), 3D Rendering & GPGPU (`Vulkan`, `OpenGL`, `HLSL/GLSL`, `CUDA`/`OpenCL`)
+* HPC & Performance Optimization: `OpenMP`, `MPI`
 
 **Networking & Telecoms**
 
-* **Low-Level Networking & Kernel:** `DPDK`, `eBPF`, `CNI`
+* Low-Level Networking & Kernel: `DPDK`, `eBPF`, `CNI`
 * Core Network (`5G`), `RAN` (`5G`, `4G`), `IoT` (`NB-IoT`, `LoRa`)
 * Signal Processing (see [publications](#publications))
 
@@ -96,8 +86,9 @@ Administration and maintenance of military communication systems (tactical radio
 * Communication, diplomacy, and conflict resolution
 * Multi-disciplinary team management, mentoring
 * Entrepreneurship, fundraising, technical strategy
-* Agile Methodologies (SCRUM)
 
+{{< /column >}}
+{{< column >}}
 # Publications
 
 * [A Cloud RAN Architecture for LoRa](https://www.researchgate.net/publication/339835183_A_Cloud_RAN_Architecture_for_LoRa) - March 2020
@@ -113,3 +104,5 @@ Self-taught expertise forged through intensive practice, complemented by a degre
 
 * **Languages**: French (Native), English (Professional).
 * **Interests**: [Game Development](https://doomtr666.github.io/devlog/), Video Games, Tabletop RPGs, Wargaming, Cooking, Reading.
+{{< /column >}}
+{{< /columns >}}
