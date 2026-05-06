@@ -10,8 +10,7 @@ draft: false
 I am an architect who has never stopped developing. This is the core of my approach: defining a strategic vision and establishing its credibility by prototyping the most complex components myself. My motivation lies in guiding talented teams toward ambitious, production-ready solutions by providing them with the confidence and autonomy to innovate.
 
 # Professional Experience
-{{< columns >}}
-{{< column >}}
+
 ## Principal Architect
 **Obvios** | *January 2022 - Present*
 
@@ -27,9 +26,6 @@ I am an architect who has never stopped developing. This is the core of my appro
 * **IoT Expertise (4G/LoRa):** Designed 4G schedulers (`NB-IoT`) and cloud-native LoRa gateways. Created **real-time radio simulators** for industrial validation and optimization of research prototypes.
 
 * **5G RAN Foundations:** Developed high-performance multithreaded libraries and deployed technical excellence practices (CI/CD, TDD, Clean Code).
-
-{{< /column>}}
-{{< column >}}
 
 ## Co-founder & CTO
 **Insane Unity** | *December 2013 - July 2017*
@@ -50,13 +46,7 @@ I am an architect who has never stopped developing. This is the core of my appro
 
 Integrated a `Bluetooth` stack and a Rich Media engine onto `NXP` mobile telephony platforms.
 
-{{< /column >}}
-{{< /columns >}}
-
 {{< page_break >}}
-
-{{< columns >}}
-{{< column >}}
 
 # Key Skills
 
@@ -87,8 +77,6 @@ Integrated a `Bluetooth` stack and a Rich Media engine onto `NXP` mobile telepho
 * Multi-disciplinary team management, mentoring
 * Entrepreneurship, fundraising, technical strategy
 
-{{< /column >}}
-{{< column >}}
 # Publications
 
 * [A Cloud RAN Architecture for LoRa](https://www.researchgate.net/publication/339835183_A_Cloud_RAN_Architecture_for_LoRa) - March 2020
@@ -104,5 +92,3 @@ Self-taught expertise forged through intensive practice, complemented by a degre
 
 * **Languages**: French (Native), English (Professional).
 * **Interests**: [Game Development](https://doomtr666.github.io/devlog/), Video Games, Tabletop RPGs, Wargaming, Cooking, Reading.
-{{< /column >}}
-{{< /columns >}}

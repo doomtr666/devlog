@@ -9,26 +9,22 @@ date: 2026-03-23
 Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mon approche : définir une vision stratégique et la rendre crédible en prototypant moi-même ses aspects les plus complexes. Ce qui me motive, c'est de guider une équipe talentueuse vers des solutions ambitieuses, conçues pour être livrées, en leur donnant la confiance et l'autonomie pour innover.
 
 # Expériences Professionnelles
-{{< columns >}}
-{{< column >}}
+
 ## Architecte Principal
 **Obvios** | *Janvier 2022 - Aujourd'hui*
 
-* **Leadership & Interface Stratégique :** Pilotage du pôle architecture (4 experts) et garant de la vision technologique pour **~30 développeurs**. Référent technique auprès des partenaires stratégiques (ANR, PIIEC).
+* **Leadership & Interface Stratégique :** Pilotage du pôle architecture (4 experts) et garant de la vision technologique pour **~30 développeurs**. Référent technique auprès des partenaires stratégiques (ANR, PIIEC) et des clients.
 
-* **Industrialisation Cloud Native (5G) :** Transformation d'un prototype en solution industrielle souveraine. Architecture **cloud-native** (Kubernetes) haute disponibilité, intégrant nativement les exigences cyber (DevSecOps, secure coding).
+* **Expertise Cybersécurité (NDR) :** Refonte du système de *Network Detection & Response* ciblant le modèle de menace 5G. Architecture alliant un Micro-SIEM (moteurs d'analyse et décision en Lua) et un IDPS eBPF ultra-léger (impact < 10% sur la data, nul sur le contrôle).
 
-* **Innovation & Prototypage :** Validation des orientations techniques par le développement de PoCs critiques (eBPF, filtrage, chiffrement) et pilotage de la qualité logicielle (Agile, réduction de la dette technique).
+* **Innovation & Prototypage :** Validation des orientations techniques par le développement de PoCs critiques (eBPF, SmartNIC) et pilotage de la qualité logicielle (architecture agile, réduction de la dette technique).
 
-## Tech Lead 
+## Tech Lead
 **b<>com** | *Décembre 2017 - Janvier 2022*
 
-* **Expertise IoT (4G/LoRa) :** Conception d'ordonnanceurs 4G (`NB-IoT`) et de passerelles LoRa cloud-native. Création de **simulateurs radio temps réel** pour validation industrielle et optimisation de prototypes de recherche.
+* **Expertise IoT (4G/LoRa) :** Conception d'ordonnanceurs 4G (`NB-IoT`) et d'une passerelle LoRa cloud-native. Création de **simulateurs radio temps réel** pour validation industrielle et optimisation de prototypes de recherche.
 
-* **Fondations RAN 5G :** Développement de bibliothèques multithread haute performance et déploiement des pratiques d'excellence technique (CI/CD, TDD, Clean Code).
-
-{{< /column>}}
-{{< column >}}
+* **Fondations RAN 5G :** Développement de bibliothèques multithreads haute performance et déploiement des pratiques d'excellence technique (CI/CD, TDD, Clean Code).
 
 ## Cofondateur & CTO
 **Insane Unity** | *Décembre 2013 - Juillet 2017*
@@ -39,27 +35,23 @@ Je suis un architecte qui n'a jamais cessé de développer. C'est le cœur de mo
 
 * **Direction Technique & Produit :** Conception de A à Z d'un **moteur de jeu propriétaire** et de l'architecture serveur scalable sur **`AWS`**.
 
-## Ingénieur R&D & Chef de projet 
+## Ingénieur R&D & Chef de projet
 **Caps Entreprise** | *Octobre 2007 - Décembre 2013*
 
-Conception et développement sur le compilateur (IR, passes d'optimisation, génération de code bas niveau) et pilotage d'équipes (jusqu'à 11 pers.) sur des missions d'optimisation (OpenMP, MPI).
+Conception et développement sur le compilateur (IR, passes d'optimisation, génération de code bas niveau) et pilotage d'équipes (jusqu'à 11 personnes) sur des missions d'optimisation (OpenMP, MPI).
 
 ## Développeur Logiciels Embarqués
 **Yaccom** | *Janvier 2005 - Octobre 2007*
 
 Intégration d'une pile `Bluetooth` et d'un moteur Rich Media sur des plateformes de téléphonie mobile `NXP`.
 
-{{< /column >}}
-{{< /columns >}}
 {{< page_break >}}
-{{< columns >}}
-{{< column >}}
 
 # Compétences Clés
 
 **Architecture & Cloud Native**
 
-* Conception de systèmes distribués, `stateless`, haute disponibilité
+* Conception de systèmes distribués, `stateless`, à haute disponibilité
 * Architecture microservices, `Kubernetes`, `AWS`
 * Plateformes d'observabilité (`Prometheus`, `Grafana`, `Loki`)
 * Sécurité Applicative & DevSecOps (`SonarQube`, `Trivy`, `CI/CD`)
@@ -81,11 +73,9 @@ Intégration d'une pile `Bluetooth` et d'un moteur Rich Media sur des plateforme
 * Direction technique (CTO), pilotage de roadmap
 * Communication, diplomatie et résolution de conflits
 * Management d'équipes pluridisciplinaires, mentorat
-* Animation d'ateliers techniques (Archi. Agile, TDD, Clean Code, SCRUM)
+* Animation d'ateliers techniques (Architecture Agile, TDD, Clean Code, SCRUM)
 * Entrepreneuriat, levée de fonds, stratégie technique
 
-{{< /column >}}
-{{< column >}}
 # Publications
 
 * [A Cloud RAN Architecture for LoRa](https://www.researchgate.net/publication/339835183_A_Cloud_RAN_Architecture_for_LoRa) - Mars 2020
@@ -101,8 +91,6 @@ Expertise forgée en autodidacte par la pratique intensive, complétée par un D
 
 * **Langues** : Français (natif), Anglais (professionnel).
 * **Loisirs** : [Développement de jeux vidéo](https://doomtr666.github.io/devlog/), Jeux vidéo, Jeux de rôle, Wargaming, Cuisine, Lecture.
-{{< /column >}}
-{{< /columns >}}
 
 
 
